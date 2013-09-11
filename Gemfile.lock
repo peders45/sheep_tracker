@@ -18,7 +18,7 @@ GEM
     em-websocket (0.5.0)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.5.3)
-    eventmachine (1.0.3)
+    eventmachine (1.0.0.rc.1)
     execjs (1.4.0)
       multi_json (~> 1.0)
     ffi (1.9.0)
@@ -106,6 +106,7 @@ PLATFORMS
 DEPENDENCIES
   animate-sass
   compass
+  eventmachine (= 1.0.0.rc.1)
   middleman (~> 3.1.4)
   middleman-livereload
   sass (~> 3.2.10)
