@@ -6,6 +6,21 @@
   font-size: 30px
   font-weight: 200
   color: white
+  float: left
+
+.header-top
+  +clearfix
+
+.header .add-sheep
+  color: #fff
+  float: right
+  margin: 10px 0 0 0
+
+  &:before
+    +inline-background-image-retina("add.png")
+    content: ""
+    display: inline-block
+    margin: 0 8px -2px 0
 
 .header .filter-bar
   margin-top: 14px
