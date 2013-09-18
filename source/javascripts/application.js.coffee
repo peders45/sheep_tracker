@@ -9,6 +9,8 @@
 #= require_tree ./helpers
 #= require_tree ./models
 #= require_tree ./collections
+#= require ./views/list_items
+#= require ./views/list
 #= require_tree ./views
 
 @SheepTracker =

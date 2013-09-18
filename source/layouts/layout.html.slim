@@ -14,9 +14,11 @@ html lang="en"
     == stylesheet_link_tag "all"
 
   body class="#{{page_classes}}"
-    == partial "partials/header"
     == yield
     
+    == partial "templates/index"
+    == partial "templates/list"
     == partial "templates/list_item"
+    == partial "templates/filter_bar"
 
     == javascript_include_tag "application"

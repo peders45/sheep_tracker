@@ -3,8 +3,8 @@ class SheepTracker.Views.List extends Thorax.View
   template: SheepTracker.templates.list
 
   initialize: ->
-    @collection = new SheepTracker.Collections.Sheep()
-    @collection.fetch()
+    collection = new SheepTracker.Collections.Sheep()
+    @listItemsView = new SheepTracker.Views.ListItems({collection})
 
-view = new SheepTracker.Views.List()
-view.appendTo(document.getElementById("sheep"))
+  filter: (value) ->
+    @listItemsView.setQuery(value)
