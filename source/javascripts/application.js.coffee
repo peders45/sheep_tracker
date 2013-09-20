@@ -11,6 +11,7 @@
 #= require_tree ./collections
 #= require ./views/list_items
 #= require ./views/list
+#= require ./views/map
 #= require_tree ./views
 
 @SheepTracker =

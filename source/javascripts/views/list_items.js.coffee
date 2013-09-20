@@ -1,6 +1,6 @@
 class SheepTracker.Views.ListItems extends Thorax.CollectionView
   itemTemplate: SheepTracker.templates.listItem
-  
+
   itemFilter: (model, index) ->
     if @query
       nameIndex = model.get("name").toLowerCase().indexOf(@query.toLowerCase())

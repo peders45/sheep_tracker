@@ -1,12 +1,11 @@
 <script data-template="index" type="text/x-handlebars">
   <header class="header">
     <div class="container">
-      <div class="header-top">
-        <h1 class="header-logo">Sheep Tracker™</h1>
-        <a class="add-sheep" href="#">Register Sheep</a>
-      </div>
-      {{view filterBarView}}
+      <h1 class="header-logo">Sheep Tracker™</h1>
+      <a class="add-sheep" href="#">Register</a>
     </div>
   </header>
-  <div class="sheep container">{{view listView}}</div> 
+  {{view filterBarView}}
+  {{view mapView}}
+  <div class="container">{{view listView}}</div> 
 </script>
