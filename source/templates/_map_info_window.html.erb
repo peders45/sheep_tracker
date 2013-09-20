@@ -1,6 +1,7 @@
 <script data-template="mapInfoWindow" type="text/x-handlebars">
-  <div class="map-info-window">
-    <h3 class="map-info-window-title">Sheep</h3>
-    <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas faucibus mollis interdum.</p>
+  <div class="map-info-window {{#if attack}}attack{{/if}}">
+    <h3 class="map-info-window-title">{{name}} {{#if attack}}er under angrep!{{/if}}</h3>
+    <p><strong>Vekt:</strong> {{weight}} kg</p>
+    <p><strong>Alder:</strong> {{humanizeYears birthday}}</p>
   </div>
 </script>
