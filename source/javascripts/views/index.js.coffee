@@ -10,9 +10,10 @@ class SheepTracker.Views.Index extends Thorax.View
     @listView = new SheepTracker.Views.List()
     @filterBarView = new SheepTracker.Views.FilterBar({delegate: this})
 
-  showForm: ->
+  showForm: (e) ->
     @formView = new SheepTracker.Views.Form({delegate: this})
     @formView.appendTo("body")
+    return false
 
   FilterBarDidChangeValue: (value) ->
     @listView.filter(value)

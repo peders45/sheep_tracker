@@ -1,20 +1,23 @@
+$header-height: 70px
+
 .header
-  background: #37c559
-  padding: 20px 0
+  background: #3cc046
+  height: $header-height
   z-index: 8
   position: relative
   +clearfix
 
 .header-logo
-  font-size: 30px
+  font-size: 24px
   font-weight: 200
   color: white
   float: left
+  line-height: $header-height
 
 .header .add-sheep
   color: #fff
   float: right
-  margin: 10px 0 0 0
+  line-height: $header-height
 
   &:before
     +inline-background-image-retina("add.png")

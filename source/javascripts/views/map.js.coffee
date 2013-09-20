@@ -21,7 +21,7 @@ class SheepTracker.Views.Map extends Thorax.View
     
     @map = new google.maps.Map(@el, @mapOptions)
     @addMarkers()
-  
+
   addMarkers: ->
     while @markers.length < 10
       @addMarker()
@@ -43,15 +43,19 @@ class SheepTracker.Views.Map extends Thorax.View
     })
 
     google.maps.event.addListener(marker, 'click', =>
+      marker.setIcon(@markerImage)
+      if marker.sound
+        marker.sound.volume = 0
+      marker.setAnimation(null)
       @infowindow.open(@map, marker)
     )
 
     @markers.push(marker)
 
   attack: (index) ->
-    sound = new Audio("/audio/sheep.wav")
-    sound.loop = true
-    sound.play()
+    @markers[index].sound = new Audio("/audio/sheep.wav")
+    @markers[index].sound.loop = true
+    @markers[index].sound.play()
     @$el.addClass "attack"
     @markers[index].setIcon(@markerImageAttacked)
     @markers[index].setAnimation(google.maps.Animation.BOUNCE);
