@@ -1,7 +1,24 @@
 <script data-template="form" type="text/x-handlebars">
   <div class="modal">
     <div class="modal-close"></div>
-    <h1>Register Sheep</h1>
+    <h1 class="sheep-form-title">Register Sheep</h1>
+    <form class="sheep-form" method="POST" action="">
+      <div class="input">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required />
+      </div>
+      <div class="input">
+        <label for="birthday">Birthday</label>
+        <input type="date" name="birthday" id="birthday" required />
+      </div>
+      <div class="input">
+        <label for="weight">Weight</label>
+        <input type="number" name="weight" id="weight" required />
+      </div>
+      <div class="input">
+        <input class="sheep-form-submit" type="submit" value="Register" /> 
+      </div>
+    </form>
   </div>
   <div class="modal-overlay"></div>
 </script>
