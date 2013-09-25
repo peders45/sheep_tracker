@@ -6,21 +6,24 @@
   right: 0
   bottom: 0
   z-index: 10
+  +animation(fadeIn, 100ms, linear, 0)
+  +animation-fill-mode(both)
 
 .modal
   +border-radius(3px)
   +box-shadow(0 1px 4px #000)
   max-width: 600px
-  min-height: 70%
-  padding: 30px
   background: white
   margin: 0 auto
   position: fixed
   top: 15%
+  padding: 0 5px
   left: $grid-padding
   right: $grid-padding
   bottom: 15%
   z-index: 11
+  +animation(fadeInDown, 100ms, linear, 0)
+  +animation-fill-mode(both)
 
 .modal-close
   +border-radius(50px)
@@ -44,3 +47,9 @@
     top: 6px
     left: 6px
     content: ""
+
+.modal-content
+  position: relative
+  height: 100%
+  overflow: auto
+  padding: 25px
