@@ -1,5 +1,8 @@
 class SheepTracker.Views.ListItems extends Thorax.CollectionView
+  
   itemTemplate: SheepTracker.templates.listItem
+  events:
+    "click .sheep-list-item-remove": "remove"
 
   itemFilter: (model, index) ->
     if @query
@@ -10,3 +13,9 @@ class SheepTracker.Views.ListItems extends Thorax.CollectionView
 
   setQuery: (@query) ->
     @collection.trigger("filter")
+
+   remove: (e) ->
+    e.preventDefault()
+    id = e.currentTarget.parentNode.getAttribute "data-id"
+    @collection.get(id).destroy({wait: true})
+    return false

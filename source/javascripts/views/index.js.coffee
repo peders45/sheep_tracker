@@ -15,6 +15,7 @@ class SheepTracker.Views.Index extends Thorax.View
     @attacked = 0
 
   showForm: (e) ->
+    e.preventDefault()
     @formView = new SheepTracker.Views.Form({delegate: this, collection: @collection})
     @formView.appendTo("body")
     return false
