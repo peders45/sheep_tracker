@@ -1,0 +1,32 @@
+.login
+  margin: 11% auto
+  max-width: image_width("login_graphic.png")
+
+.login-title
+  text-align: center
+  margin: 20px 0
+
+.login-graphic
+  +inline-background-image-retina("login_graphic.png")
+  margin: 0 auto
+
+.login-form-input
+  margin-bottom: 8px
+
+.input
+  label.login-form-checkbox-label
+    float: left
+    font-size: 12px
+    margin-left: 5px
+    +user-select(none)
+
+  input.login-form-checkbox
+    float: left
+    width: auto
+
+.submit 
+  input.login-form-submit
+    float: right
+    background: #37c559
+    padding: 0 20px
+    margin-top: 4px

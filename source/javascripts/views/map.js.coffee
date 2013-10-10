@@ -13,8 +13,8 @@ class SheepTracker.Views.Map extends Thorax.View
     @_markers = {}
 
   addMap: ->
-    @markerImage = new google.maps.MarkerImage("/images/sheep@2x.png", null, null, null, new google.maps.Size(40, 38))
-    @markerImageAttacked = new google.maps.MarkerImage("/images/sheep_attacked@2x.png", null, null, null, new google.maps.Size(67, 65))
+    @markerImage = new google.maps.MarkerImage("images/sheep@2x.png", null, null, null, new google.maps.Size(40, 38))
+    @markerImageAttacked = new google.maps.MarkerImage("images/sheep_attacked@2x.png", null, null, null, new google.maps.Size(67, 65))
     @infowindow = new google.maps.InfoWindow({maxWidth: 200})
     
     @map = new google.maps.Map(@el, {
@@ -61,7 +61,7 @@ class SheepTracker.Views.Map extends Thorax.View
         marker.setAnimation(null)
 
   _audioPlayer: ->
-    sound = new Audio("/audio/sheep.wav")
+    sound = new Audio("audio/sheep.wav")
     sound.loop = true
     sound
 

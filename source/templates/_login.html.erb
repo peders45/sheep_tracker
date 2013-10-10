@@ -1,0 +1,25 @@
+<script id="login" data-template="login" type="text/x-handlebars">
+  <div class="login">
+    <div class="login-content">
+      <div class="login-graphic"></div>
+      <h1 class="login-title">Login to Sheep Tracker</h1>
+      
+      <form action="index.html" class="login-form" method="POST">
+        <div class="input">
+          <input class="login-form-input" name="username" placeholder="Username" type="text" autofocus required>
+        </div>
+        <div class="input">
+          <input class="login-form-input" name="password" placeholder="Password" type="password" required>
+        </div>
+        <div class="input">
+          <input class="login-form-checkbox" id="remember" name="remember" type="checkbox">
+          <label class="login-form-checkbox-label" for="remember">Remember me</label>
+        </div>
+        <div class="submit">
+          <input class="login-form-submit" type="submit" value="Login">
+        </div>
+      </form>
+    </div>
+    <div class="error-message">Wrong username or password</div>
+  </div>
+</script>

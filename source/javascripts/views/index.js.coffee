@@ -5,6 +5,7 @@ class SheepTracker.Views.Index extends Thorax.View
   events:
     "click .add-sheep": "showForm"
     "click .attack-sheep": "attackSheep"
+    "click .logout": "logout"
 
   initialize: ->
     @collection = new SheepTracker.Collections.Sheep()
@@ -29,6 +30,15 @@ class SheepTracker.Views.Index extends Thorax.View
   FilterBarDidChangeValue: (value) ->
     @listView.filter(value)
     @$el.toggleClass("no-map", value.length != 0)
+
+  logout: (e) ->
+    $.ajax
+      type: "get"
+      url: "http://localhost:8888/logout"
+      success: (data) =>
+        window.location = "index.html"
+      error: (data) =>
+        window.location = "index.html"
   
 
 view = new SheepTracker.Views.Index()
