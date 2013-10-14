@@ -4,9 +4,9 @@
 #= require ../libs/handlebars
 #= require ../libs/thorax.js
 
-class LoginView extends Thorax.View
+class RegisterView extends Thorax.View
 
-  template: Handlebars.compile(document.getElementById("login").innerHTML)
+  template: Handlebars.compile(document.getElementById("register").innerHTML)
   className: "auth"
   events:
     "submit form": "_onSubmit"
@@ -17,19 +17,18 @@ class LoginView extends Thorax.View
 
     $.ajax
       type: "post"
-      url: "http://localhost:8888/login"
+      url: "http://localhost:8888/register"
       data: attributes
       success: (data) =>
-        @redirect()
+        @showMessage(data)
       error: (data) =>
         @showError()
 
-  showError: (e) ->
-    @$el.addClass("error")
+  showError: (data) ->
     @$el.find(".error-message").addClass("visible")
 
-  redirect: ->
-    window.location = "index.html"
+  showMessage: (data) ->
+    @$el.find(".success-message").html(data).addClass("visible")
 
-view = new LoginView()
+view = new RegisterView()
 view.appendTo("body")

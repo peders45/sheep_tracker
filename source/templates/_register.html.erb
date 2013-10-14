@@ -1,0 +1,23 @@
+<script id="register" data-template="register" type="text/x-handlebars">
+  <div class="auth-content">
+    <div class="auth-graphic"></div>
+    <h1 class="auth-title">Register User</h1>
+    
+    <form action="index.html" class="auth-form" method="POST">
+      <div class="input">
+        <input class="auth-form-input" name="email" placeholder="Email address" type="email" autofocus required>
+      </div>
+      <div class="input">
+        <input class="auth-form-input" name="username" placeholder="Username" type="text" required>
+      </div>
+      <div class="input">
+        <input class="auth-form-input" name="password" placeholder="Password" type="password" required>
+      </div>
+      <div class="submit">
+        <input class="auth-form-submit" type="submit" value="Register">
+      </div>
+    </form>
+    <div class="error-message"></div>
+    <div class="success-message"></div>
+  </div>
+</script>
