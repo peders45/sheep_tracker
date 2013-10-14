@@ -19,7 +19,7 @@ spinner = new Spinner(options).spin(container)
 validateRegistration = ->
   $.ajax
     type: "get"
-    url: "#{SERVER_URL}/#{registrationCode}"
+    url: "#{SERVER_URL}/validate_registration/#{registrationCode}"
     success: (data) =>
       window.location = "login.html"
     error: (data) =>
