@@ -1,5 +1,6 @@
 #= require ../libs/jquery-2.0.3.min
 #= require ../libs/spin.min.js
+#= require ../config.js
 
 container = document.getElementById "container"
 console.log container
@@ -18,7 +19,7 @@ spinner = new Spinner(options).spin(container)
 validateRegistration = ->
   $.ajax
     type: "get"
-    url: "http://localhost:8888/validate_registration/#{registrationCode}"
+    url: "#{SERVER_URL}/#{registrationCode}"
     success: (data) =>
       window.location = "login.html"
     error: (data) =>

@@ -1,5 +1,6 @@
 #= require ../libs/jquery-2.0.3.min
 #= require ../libs/spin.min.js
+#= require ../config.js
 
 container = document.getElementById "container"
 options =
@@ -16,7 +17,7 @@ new Spinner(options).spin(container)
 validateUser = ->
   $.ajax
     type: "get"
-    url: "http://localhost:8888/validate"
+    url: "#{SERVER_URL}/validate"
     success: (data) =>
       window.location = "sheep.html"
     error: (data) =>

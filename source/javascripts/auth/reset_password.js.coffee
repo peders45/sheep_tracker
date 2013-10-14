@@ -3,6 +3,7 @@
 #= require ../libs/backbone.min.js
 #= require ../libs/handlebars
 #= require ../libs/thorax.js
+#= require ../config.js
 
 class ResetPasswordView extends Thorax.View
 
@@ -22,7 +23,7 @@ class ResetPasswordView extends Thorax.View
 
     $.ajax
       type: "post"
-      url: "http://localhost:8888/reset_password"
+      url: "#{SERVER_URL}/reset_password"
       data: attributes
       success: (data) =>
         @showMessage(data)

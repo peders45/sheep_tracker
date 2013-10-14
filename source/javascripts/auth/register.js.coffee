@@ -3,6 +3,7 @@
 #= require ../libs/backbone.min.js
 #= require ../libs/handlebars
 #= require ../libs/thorax.js
+#= require ../config.js
 
 class RegisterView extends Thorax.View
 
@@ -17,7 +18,7 @@ class RegisterView extends Thorax.View
 
     $.ajax
       type: "post"
-      url: "http://localhost:8888/register"
+      url: "#{SERVER_URL}/register"
       data: attributes
       success: (data) =>
         @showMessage(data)

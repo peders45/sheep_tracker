@@ -34,7 +34,7 @@ class SheepTracker.Views.Index extends Thorax.View
   logout: (e) ->
     $.ajax
       type: "get"
-      url: "http://localhost:8888/logout"
+      url: "#{SERVER_URL}/logout"
       success: (data) =>
         window.location = "index.html"
       error: (data) =>

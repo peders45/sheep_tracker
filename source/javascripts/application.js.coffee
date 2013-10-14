@@ -5,6 +5,7 @@
 #= require ./libs/thorax.js
 #= require ./libs/moment.min.js
 #= require ./libs/spin.min.js
+#= require ./config.js
 #= require_self
 #= require_tree ./helpers
 #= require_tree ./models

@@ -3,6 +3,7 @@
 #= require ../libs/backbone.min.js
 #= require ../libs/handlebars
 #= require ../libs/thorax.js
+#= require ../config.js
 
 class LoginView extends Thorax.View
 
@@ -17,7 +18,7 @@ class LoginView extends Thorax.View
 
     $.ajax
       type: "post"
-      url: "http://localhost:8888/login"
+      url: "#{SERVER_URL}/login"
       data: attributes
       success: (data) =>
         @redirect()
