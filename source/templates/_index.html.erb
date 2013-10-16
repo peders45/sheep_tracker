@@ -1,12 +1,5 @@
 <script data-template="index" type="text/x-handlebars">
-  <header class="header">
-    <div class="container">
-      <h1 class="header-logo">SheepTracker</h1>
-      <a class="header-link logout" href="#">Logout</a>
-      <a class="header-link add-sheep" href="#">Register</a>
-      <a class="header-link attack-sheep" href="#">Attack</a>
-    </div>
-  </header>
+  {{view headerView}}
   {{view filterBarView}}
   {{view mapView}}
   <div class="container">{{view listView}}</div> 

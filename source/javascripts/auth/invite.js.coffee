@@ -5,18 +5,12 @@
 #= require ../libs/thorax.js
 #= require ../config.js
 
-class RegisterView extends Thorax.View
+class InviteView extends Thorax.View
 
-  template: Handlebars.compile(document.getElementById("register").innerHTML)
   className: "auth"
+  template: Handlebars.compile(document.getElementById("invite").innerHTML)
   events:
     "submit form": "_onSubmit"
-
-  render: ->
-    @invite_code = window.location.hash.slice(1) || null
-    super
-    if @invite_code
-      @$el.find("#invite-code").val(@invite_code)
 
   _onSubmit: (e) ->
     e.preventDefault()
@@ -24,7 +18,7 @@ class RegisterView extends Thorax.View
 
     $.ajax
       type: "post"
-      url: "#{SERVER_URL}/register"
+      url: "#{SERVER_URL}/invite"
       data: attributes
       success: (data) =>
         @showMessage(data)
@@ -37,5 +31,6 @@ class RegisterView extends Thorax.View
   showMessage: (data) ->
     @$el.find(".success-message").html(data).addClass("visible")
 
-view = new RegisterView()
+
+view = new InviteView()
 view.appendTo("body")

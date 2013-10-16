@@ -1,3 +1,4 @@
 Handlebars.registerHelper("humanizeYears", (date) ->
-  moment.duration(date, "years").humanize()
+  age = moment(new Date()).diff(moment(date),'years')
+  if age > 1 then "#{age} years" else "#{age} year"
 )

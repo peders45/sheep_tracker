@@ -14,7 +14,7 @@ class SheepTracker.Views.ListItems extends Thorax.CollectionView
   setQuery: (@query) ->
     @collection.trigger("filter")
 
-   remove: (e) ->
+  remove: (e) ->
     e.preventDefault()
     id = e.currentTarget.parentNode.getAttribute "data-id"
     @collection.get(id).destroy({wait: true})

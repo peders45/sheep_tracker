@@ -1,0 +1,19 @@
+<script id="invite" type="text/x-handlebars">
+  <div class="auth-content">
+    <div class="auth-graphic"></div>
+    <h1 class="auth-title">Invite new user</h1>
+    <form action="index.html" class="auth-form" method="POST">
+      <div class="input">
+        <input class="auth-form-input" name="email" placeholder="Email address" type="email" autofocus required>
+      </div>
+      <div class="input">
+        <textarea class="auth-form-textarea" name="message" placeholder="Write a message"></textarea>
+      </div>
+      <div class="submit">
+        <input class="auth-form-submit" type="submit" value="Send invitation">
+      </div>
+    </form>
+    <div class="error-message">Something went wrong</div>
+    <div class="success-message"></div>
+  </div>
+</script>

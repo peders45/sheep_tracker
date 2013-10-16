@@ -25,9 +25,9 @@ class SheepTracker.Views.Map extends Thorax.View
     })
 
   addMarker: (model) =>
-    coordinates = model.get("coordinates")
+    position = model.get("position")
     @_markers[model.cid] = marker = new google.maps.Marker({
-      position: new google.maps.LatLng(coordinates.x, coordinates.y)
+      position: new google.maps.LatLng(position[0], position[1])
       map: @map,
       icon: @markerImage,
       draggable: true

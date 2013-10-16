@@ -1,9 +1,17 @@
 <script id="register" data-template="register" type="text/x-handlebars">
   <div class="auth-content">
     <div class="auth-graphic"></div>
-    <h1 class="auth-title">Register User</h1>
     
+    <h1 class="auth-title">
+      {{#if invite_code}}
+        Finish your registration
+      {{else}}
+        Register a new user
+      {{/if}}
+    </h1>
+
     <form action="index.html" class="auth-form" method="POST">
+      <input id="invite-code" name="invite-code" type="hidden">
       <div class="input">
         <input class="auth-form-input" name="email" placeholder="Email address" type="email" autofocus required>
       </div>
@@ -17,7 +25,7 @@
         <input class="auth-form-submit" type="submit" value="Register">
       </div>
     </form>
-    <div class="error-message"></div>
+    <div class="error-message">Invalid input</div>
     <div class="success-message"></div>
   </div>
 </script>

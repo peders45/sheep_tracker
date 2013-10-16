@@ -21,16 +21,15 @@ class ChangePasswordView extends Thorax.View
 
   _onSubmit: (e) ->
     e.preventDefault()
-    attributes = @serialize()
     document.getElementById("reset-code").value = @id
+    attributes = @serialize()
     
     $.ajax
       type: "post"
       url: "#{SERVER_URL}/change_password"
       data: attributes
-      success: (data) =>
-        console.log data
-        # @redirect()
+    success: (data) =>
+        @redirect()
       error: (data) =>
         @showError()
 
