@@ -25,5 +25,5 @@ class SheepTracker.Views.ListItems extends Thorax.CollectionView
     e.preventDefault()
     id = e.currentTarget.parentNode.getAttribute "data-model-cid"
     model = @collection.get(id)
-    @formView = new SheepTracker.Views.Form({model: model})
+    @formView = new SheepTracker.Views.Form({model: model, @delegate})
     @formView.appendTo("body")

@@ -13,6 +13,7 @@
 #= require ./views/list_items
 #= require ./views/list
 #= require ./views/map
+#= require ./views/notifications
 #= require_tree ./views
 
 @SheepTracker =

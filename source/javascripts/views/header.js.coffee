@@ -13,7 +13,7 @@ class SheepTracker.Views.Header extends Thorax.View
 
   showForm: (e) ->
     e.preventDefault()
-    @formView = new SheepTracker.Views.Form({delegate: this, collection: @collection})
+    @formView = new SheepTracker.Views.Form({@collection, @delegate})
     @formView.appendTo("body")
     return false
 
