@@ -10,4 +10,6 @@ class SheepTracker.Models.Sheep extends Thorax.Model
       name: @get("name")
       birthday: new Date(@get("birthday"))
       weight: @get("weight")
+      breed: @get("breed")
+      gender: @get("gender")
     }

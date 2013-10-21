@@ -1,0 +1,85 @@
+$border-color: #eee
+
+.datepicker
+  background: white
+  border-radius: 3px
+  width: 329px
+  +box-shadow(0 1px 3px rgba(black, 0.4))
+
+.datepicker-header
+  +pie-clearfix
+  position: relative
+
+  .datepicker-title
+    font-size: 14px
+    font-weight: 600
+    color: #222
+    text-align: center
+    padding: 5px 0 0 0
+
+  .datepicker-prev,
+  .datepicker-next
+    display: block
+    color: #222
+    font-size: 22px
+    position: absolute
+    top: 3px
+    left: 10px
+    width: 40px
+    cursor: pointer
+    text-decoration: none
+
+  .datepicker-next
+    left: auto
+    right: 10px
+    text-align: right
+
+  .datepicker-prev:after
+    content: "‹"
+
+  .datepicker-next:after
+    content: "›"
+
+  .datepicker-daysofweek
+    +pie-clearfix
+
+    > span
+      color: #ccc
+      font-size: 11px
+      width: 14.28572%
+      display: block
+      float: left
+      text-align: center
+      font-weight: 600
+      
+.datepicker-body
+  +pie-clearfix
+
+  .day
+    width: 14.28572%
+    font-size: 13px
+    text-align: center
+    display: block
+    float: left
+    height: 30px
+    line-height: 30px
+    border-top: 1px solid $border-color
+    border-right: 1px solid $border-color
+    cursor: pointer
+    color: #666
+    text-decoration: none
+
+  .last
+    border-right: none
+
+  .today
+    background: #fffcde
+    color: #c17600
+
+  .not-in-month
+    color: #ccc
+    background: #f7f7f7
+
+  .highlight
+    background: #328ff1
+    color: white

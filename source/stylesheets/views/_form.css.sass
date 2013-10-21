@@ -1,10 +1,62 @@
+.sheep-modal
+  max-height: 520px
+
+.sheep-form .input
+  margin-bottom: 5px
+  position: relative
+
+.form-gender
+  +clearfix
+
+.form-gender > label
+  margin-top: 0
+
+.input-gender
+  float: left
+  margin-right: 20px
+
+.input-gender input,
+.input-gender label
+  float: left
+  width: auto
+
+.input-gender input
+  height: 22px
+
+.input-gender label
+  font-size: 13px
+  margin-left: 5px
+  margin-top: 0
+
+.form-columns
+  +clearfix
+  padding-bottom: 10px
+
+.form-columns .input
+  +span-columns(6)
+
+.form-columns .input:last-child
+  +omega
+
+.sheep-form .submit
+  margin-top: 15px
+  border-top: 1px solid #ddd
+
+.sheep-form-submit,
+.sheep-form-cancel
+  float: right
+  margin-top: 15px
+  margin-left: 5px
+
 .sheep-form-title
   border-bottom: 1px solid #eee
   padding-bottom: 20px
 
-.sheep-form-submit
-  float: right
-  margin-top: 20px
-
 input[type="submit"].sheep-form-submit
   background: #3cc046
+
+.input .datepicker
+  position: absolute
+  top: 80px
+  left: 0
+  z-index: 1000
