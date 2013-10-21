@@ -19,6 +19,7 @@ class SheepTracker.Views.Form extends Thorax.View
 
   _datepickerFocus: (e) =>
     el = e.currentTarget.parentNode
+    
     if @datepicker
       @datepicker.show()
     else
@@ -26,6 +27,8 @@ class SheepTracker.Views.Form extends Thorax.View
       @datepicker.on("select", @_datepickerSelect)
       @datepickerInput = document.getElementById("birthday")
       el.appendChild(@datepicker.el)
+
+    @datepicker.select(@datepickerInput.value)
 
   _datepickerBlur: (e) =>
     @datepicker?.hide()
@@ -40,7 +43,12 @@ class SheepTracker.Views.Form extends Thorax.View
   _submit: (e) =>
     e.preventDefault()
     attributes = @serialize()
-    if @collection.create(attributes, {wait: true})
+
+    if @model?.set(attributes)
+      @model.save()
+      @destroy()
+
+    if @collection?.create(attributes, {wait: true})
       @destroy()
 
   _cancel: (e) =>

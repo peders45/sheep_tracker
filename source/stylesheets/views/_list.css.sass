@@ -12,21 +12,27 @@ $list-item-height: 46px
   color: #222
 
 .sheep-list-row
-  height: $list-item-height
-  line-height: $list-item-height
   border-bottom: 1px solid #ddd
   +clearfix
 
-  > span
+  span
     display: block
-    width: 30%
+    width: 25%
     float: left
     padding-left: 12px
     border-right: 1px solid #ddd
+    height: $list-item-height
+    line-height: $list-item-height
 
-  > span:last-child  
+  span:last-child
     width: 10%
     border-right: none
 
   &:last-child
     border-bottom: none
+
+  span.sheep-list-item-edit
+    width: 10%
+  
+  span.sheep-list-header-edit
+    width: 10%

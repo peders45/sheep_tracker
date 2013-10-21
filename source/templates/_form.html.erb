@@ -2,40 +2,40 @@
   <div class="modal sheep-modal">
     <div class="modal-close"></div>
     <div class="modal-content">
-      <h1 class="sheep-form-title">Register Sheep</h1>
+      <h1 class="sheep-form-title">{{#if name}}Edit {{name}}{{else}}Register Sheep{{/if}}</h1>
       <form class="sheep-form" method="POST" action="">
         <div class="input">
           <label for="name">Name</label>
-          <input type="text" name="name" id="name" value="Leif" required autofocus>
+          <input type="text" name="name" id="name" value="{{name}}" required autofocus>
         </div>
 
         <div class="input">
           <label for="birthday">Birthday</label>
-          <input type="date" class="sheep-form-birthday" name="birthday" id="birthday" value="01/18/1991" required>
+          <input type="date" class="sheep-form-birthday" name="birthday" id="birthday" value="{{formatDate birth_date}}" required>
         </div>
         <div class="form-columns">
           <div class="input">
             <label for="weight">Weight</label>
-            <input type="number" name="weight" id="weight" value="20" required>
+            <input type="number" name="weight" id="weight" value="{{weight}}" required>
           </div>
           <div class="input">
             <label for="breed">Breed</label>
-            <input type="text" name="breed" id="breed" value="Merino">
+            <input type="text" name="breed" id="breed" value="{{breed}}">
           </div>
         </div>
         <div class="input form-gender">
           <label for="gender">Gender</label>
           <div class="input input-gender">
-            <input type="radio" name="gender" value="0" id="gender-male" checked>
+            <input type="radio" name="gender" value="0" id="gender-male" {{maleIsChecked gender}}>
             <label for="gender-male">Male</label>
           </div>
           <div class="input input-gender">
-            <input type="radio" name="gender" value="1" id="gender-female">
+            <input type="radio" name="gender" value="1" id="gender-female" {{femaleIsChecked gender}}>
             <label for="gender-female">Female</label>
           </div>
         </div>
         <div class="submit">
-          <input class="sheep-form-submit" type="submit" value="Register"> 
+          <input class="sheep-form-submit" type="submit" value="{{#if name}}Save{{else}}Register{{/if}}"> 
           <button class="sheep-form-cancel">Cancel</button> 
         </div>
       </form>
