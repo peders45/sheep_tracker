@@ -28,7 +28,8 @@ class SheepTracker.Views.Form extends Thorax.View
       @datepickerInput = document.getElementById("birthday")
       el.appendChild(@datepicker.el)
 
-    @datepicker.select(@datepickerInput.value)
+    if date = new Date(@datepickerInput.value)
+      @datepicker.select(date)
 
   _datepickerBlur: (e) =>
     @datepicker?.hide()
