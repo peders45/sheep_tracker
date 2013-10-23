@@ -19,7 +19,7 @@ class SheepTracker.Views.Header extends Thorax.View
 
   attackSheep: (e) ->
     if model = @collection.at(@attacked++)
-      model.set({attack: true})
+      model.set({state: 1})
     else
       @$el.addClass("attack-disabled")
 

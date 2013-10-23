@@ -42,8 +42,8 @@ class SheepTracker.Views.Map extends Thorax.View
     @infowindow.setContent(content)
     @infowindow.open(@map, @_markers[model.cid])
 
-  attack: (model, attack, options) ->
-    if attack
+  attack: (model, state, options) ->
+    if state == 1
       @_sounds[model.cid] = sound = @_audioPlayer()
       sound.play()
 
