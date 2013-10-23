@@ -47,7 +47,7 @@ class SheepTracker.Views.Form extends Thorax.View
     if @model?.set(attributes)
       @model.save()
       @destroy()
-      message = notifications.edited.replace("%s", @model.attributes.name)
+      message = notifications.edited.replace("%s", @model.get("name"))
       @delegate?.NotificationDidAppear?(message, "success")
 
     if @collection?.create(attributes, {wait: true})

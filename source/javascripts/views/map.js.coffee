@@ -5,7 +5,7 @@ class SheepTracker.Views.Map extends Thorax.View
   events:
     collection:
       add: "addMarker"
-      "change:attack": "attack"
+      "change:state": "attack"
 
   initialize: ->
     @addMap()
