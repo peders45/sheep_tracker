@@ -18,6 +18,3 @@ class SheepTracker.Views.Index extends Thorax.View
 
   NotificationDidAppear: (message, type) ->
     @notificationsView.add(message, type)
-
-view = new SheepTracker.Views.Index()
-view.appendTo("body")

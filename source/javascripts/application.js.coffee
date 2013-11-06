@@ -7,6 +7,7 @@
 #= require ./libs/spin.min.js
 #= require ./config.js
 #= require_self
+#= require ./router.js
 #= require_tree ./helpers
 #= require_tree ./models
 #= require_tree ./collections
@@ -15,16 +16,11 @@
 #= require ./views/map
 #= require ./views/notifications
 #= require_tree ./views
+#= require ./init.js
 
 @SheepTracker =
   Views: {}
   Models: {}
   Collections: {}
+  Router: {}
   templates: {}
-
-$templates = $("[type=\"text/x-handlebars\"]")
-for template in $templates
-  name = template.getAttribute "data-template"
-  SheepTracker.templates[name] = Handlebars.compile template.innerHTML
-
-Backbone.history.start()

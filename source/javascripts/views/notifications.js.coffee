@@ -4,10 +4,10 @@ class SheepTracker.Views.Notifications extends Thorax.View
   template: Handlebars.compile("<div></div>")
   notificationTemplate: SheepTracker.templates.notification
   events:
-    "click .notification-close": "remove"
+    "click .notification-close": "clear"
   
   add: (message, type) ->
     @$el.append(@notificationTemplate({message, type}))
 
-  remove: (e) =>
+  clear: (e) =>
     $(e.currentTarget.parentNode).remove()

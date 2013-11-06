@@ -1,0 +1,94 @@
+.sheep-header
+  border-bottom: 1px solid #d3d9dc
+  padding: 30px 0 20px 0
+  +clearfix
+
+.sheep-title
+  font-size: 42px
+  color: #222
+  float: left
+
+.sheep-actions
+  float: right
+  margin-top: 10px
+
+.sheep-action-item
+  display: inline
+
+.sheep-action-link
+  @extend %button
+  margin-left: 6px
+
+.sheep-action-edit
+  background: #1e91d2
+  border-color: #1e91d2
+  color: #fff
+
+.sheep-content
+  padding: 30px 0
+  border-top: 1px solid #d3d9dc
+
+  h3
+    font-size: 18px
+    font-weight: 600
+    color: #1e91d2
+    margin-bottom: 20px
+
+.sheep-content-list-item
+  border-bottom: 1px solid #e9ebed
+  height: 40px
+  line-height: 40px
+
+  &:first-child
+    border-top: 1px solid #e9ebed
+
+  strong
+    width: 140px
+    display: inline-block
+
+.sheep-overview,
+.sheep-content
+  +clearfix
+
+.sheep-details,
+.sheep-overview .sheep-state
+  +span-columns(4)
+
+.sheep-activity,
+.sheep-overview .sheep-map
+  +span-columns(8)
+  +omega
+
+  span
+    font-size: 13px
+    color: #999
+    width: 140px
+    display: inline-block
+
+.sheep-overview
+  padding: 30px 0
+
+  .sheep-map
+    +border-radius(3px)
+    background: #333
+    height: 280px
+
+  .sheep-state
+    +border-radius(3px)
+    border: 1px solid #d3d9dc
+    height: 280px
+    font-size: 22px
+    text-align: center
+
+.sheep-state-graphic
+  margin: 25px auto 25px auto
+  
+  &.normal
+    +background-image-retina("sheep_state_normal.png")
+
+  &.attack
+    +background-image-retina("sheep_state_attack.png")
+  
+  &.dead
+    +background-image-retina("sheep_state_dead.png")
+    

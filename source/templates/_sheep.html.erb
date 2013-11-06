@@ -1,0 +1,48 @@
+<script data-template="sheep" type="text/x-handlebars">
+  {{view headerView}}
+  <div class="container">
+    <header class="sheep-header">
+      <h1 class="sheep-title">{{name}}</h1>
+      <ul class="sheep-actions">
+        <li class="sheep-action-item"><a class="sheep-action-link sheep-action-delete" href="#">Delete</a></li>
+        <li class="sheep-action-item"><a class="sheep-action-link sheep-action-edit" href="#">Edit</a></li>
+      </ul>
+    </header>
+
+    <div class="sheep-overview">
+
+      <div class="sheep-state">
+        <div class="sheep-state-graphic {{stateClass state}}"></div>
+        {{stateMessage state}}
+      </div>
+
+      {{view mapView}}
+
+    </div>
+
+    <div class="sheep-content">
+      <div class="sheep-details">
+        <h3>General Information</h3>
+        <ul class="sheep-content-list">
+          <li class="sheep-content-list-item"><strong>ID: </strong>{{id}}</li>
+          <li class="sheep-content-list-item"><strong>Weight: </strong>{{weight}}</li>
+          <li class="sheep-content-list-item"><strong>Birthday: </strong>{{formatDate birth_date}}</li>
+          <li class="sheep-content-list-item"><strong>Age: </strong>{{humanizeYears birth_date}}</li>
+          <li class="sheep-content-list-item"><strong>Breed: </strong>{{breed}}</li>
+          <li class="sheep-content-list-item"><strong>Gender: </strong>{{gender}}</li>
+        </ul>
+      </div>
+      <div class="sheep-activity">
+        <h3>Recent Activity</h3>
+        <ul class="sheep-content-list">
+          <li class="sheep-content-list-item"><span>12/01/2012</span>Daisy was edited by Truls</li>
+          <li class="sheep-content-list-item"><span>12/01/2012</span>Daisy was edited by Truls</li>
+          <li class="sheep-content-list-item"><span>12/01/2012</span>Daisy was edited by Truls</li>
+          <li class="sheep-content-list-item"><span>12/01/2012</span>Daisy was edited by Truls</li>
+          <li class="sheep-content-list-item"><span>12/01/2012</span>Daisy was edited by Truls</li>
+        </ul>
+      </div>
+    </div>
+  </div> 
+  {{view notificationsView}}
+</script>

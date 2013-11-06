@@ -1,6 +1,9 @@
 class SheepTracker.Models.Sheep extends Thorax.Model
 
-  parse: (response) ->
+  urlRoot: "#{SERVER_URL}/sheep/"
+
+  parse: (response, options) ->
+    response = if (options.collection) then response else response[0]
     response.birth_date = moment(response.birth_date).toDate();
     response.position = response.position.split(",")
     return response

@@ -2,8 +2,9 @@ class SheepTracker.Views.ListItems extends Thorax.CollectionView
   
   itemTemplate: SheepTracker.templates.listItem
   events:
-    "click .sheep-list-item-remove": "remove"
+    "click .sheep-list-item-remove": "clear"
     "click .sheep-list-item-edit": "edit"
+    "click .sheep-list-item": "redirect"
 
   itemFilter: (model, index) ->
     if @query
@@ -15,7 +16,7 @@ class SheepTracker.Views.ListItems extends Thorax.CollectionView
   setQuery: (@query) ->
     @collection.trigger("filter")
 
-  remove: (e) ->
+  clear: (e) ->
     e.preventDefault()
     id = e.currentTarget.parentNode.getAttribute "data-model-cid"
     @collection.get(id).destroy({wait: true})
@@ -27,3 +28,7 @@ class SheepTracker.Views.ListItems extends Thorax.CollectionView
     model = @collection.get(id)
     @formView = new SheepTracker.Views.Form({model: model, @delegate})
     @formView.appendTo("body")
+
+  redirect: (e) ->
+    id = e.currentTarget.getAttribute "data-model-id"
+    window.location.hash = id
