@@ -13,5 +13,14 @@ class @SheepTracker.Router extends Backbone.Router
   sheep: (id) ->
     @indexView?.destroy()
     @sheepView?.destroy()
-    @sheepView = new SheepTracker.Views.Sheep({id: id})
-    @sheepView.appendTo("body")
+
+    @model = new SheepTracker.Models.Sheep({id: id})
+    @model.fetch(
+      {
+        error: =>
+          window.location = "/"
+        success: =>
+          @sheepView = new SheepTracker.Views.Sheep({@model})
+          @sheepView.appendTo("body")
+      }
+    )

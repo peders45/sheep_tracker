@@ -25,8 +25,23 @@ Handlebars.registerHelper("stateClass", (state) ->
 
 Handlebars.registerHelper("stateMessage", (state) ->
   message = switch state
-    when 0 then "Daisy is healthy!" 
-    when 1 then "Daisy is under attack!" 
-    when 2 then "Daisy is dead." 
+    when 0 then "#{@name} is healthy" 
+    when 1 then "#{@name} is under attack" 
+    when 2 then "#{@name} is dead" 
+  return message
+)
+
+Handlebars.registerHelper("stateName", (state) ->
+  message = switch state
+    when 0 then "#{@name}" 
+    when 1 then "#{@name} is under attack" 
+    when 2 then "#{@name} is dead" 
+  return message
+)
+
+Handlebars.registerHelper("genderLabel", (gender) ->
+  message = switch gender
+    when 0 then "Male" 
+    when 1 then "Female"  
   return message
 )

@@ -3,21 +3,19 @@ class SheepTracker.Views.Sheep extends Thorax.View
   className: "sheep"
   template: SheepTracker.templates.sheep
   events:
+    model:
+      "change": "render"
     "click .sheep-action-delete": "clear"
     "click .sheep-action-edit": "edit"
+    "click .sheep-state": "state"
 
   initialize: ->
-    @model = new SheepTracker.Models.Sheep({id: @id})
-    @model.fetch({error: @redirect})
-    @mapView = new SheepTracker.Views.Map({@modal})
-    @headerView = new SheepTracker.Views.Header({delegate: this})
+    @mapView = new SheepTracker.Views.Map({@model})
+    @headerView = new SheepTracker.Views.Header({@model, delegate: this})
     @notificationsView = new SheepTracker.Views.Notifications()
 
   NotificationDidAppear: (message, type) ->
     @notificationsView.add(message, type)
-
-  redirect: ->
-    window.location = "/"
 
   clear: (e) ->
     e.preventDefault()
@@ -29,3 +27,8 @@ class SheepTracker.Views.Sheep extends Thorax.View
     e.preventDefault()
     @formView = new SheepTracker.Views.Form({@model, delegate: this})
     @formView.appendTo("body")
+
+  state: (e) ->
+    if @model.get("state") == 1
+      @model.set("state": 0)
+      @model.save()

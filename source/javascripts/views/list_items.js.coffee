@@ -18,16 +18,19 @@ class SheepTracker.Views.ListItems extends Thorax.CollectionView
 
   clear: (e) ->
     e.preventDefault()
+    e.stopImmediatePropagation()
     id = e.currentTarget.parentNode.getAttribute "data-model-cid"
     @collection.get(id).destroy({wait: true})
     return false
 
   edit: (e) ->
     e.preventDefault()
+    e.stopImmediatePropagation()
     id = e.currentTarget.parentNode.getAttribute "data-model-cid"
     model = @collection.get(id)
     @formView = new SheepTracker.Views.Form({model: model, @delegate})
     @formView.appendTo("body")
+    return false
 
   redirect: (e) ->
     id = e.currentTarget.getAttribute "data-model-id"

@@ -1,13 +1,23 @@
 class SheepTracker.Views.Notifications extends Thorax.View
 
   className: "notifications"
-  template: Handlebars.compile("<div></div>")
-  notificationTemplate: SheepTracker.templates.notification
+  template: SheepTracker.templates.notifications
   events:
-    "click .notification-close": "clear"
-  
-  add: (message, type) ->
-    @$el.append(@notificationTemplate({message, type}))
+    collection:
+      "add": "render"
+    "click .notification-close": "close"
 
-  clear: (e) =>
-    $(e.currentTarget.parentNode).remove()
+  initialize: ->
+    @collection = new SheepTracker.Collections.Notifications()
+    
+  add: (message, type) ->
+    @collection.add({type, message})
+    
+    setTimeout(=>
+      @collection.pop()
+    , 4000)
+  
+  close: (e) ->
+    id = e.currentTarget.parentNode.getAttribute("data-model-cid")
+    model = @collection.get(id)
+    model.destroy()

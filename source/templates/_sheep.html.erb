@@ -7,16 +7,25 @@
         <li class="sheep-action-item"><a class="sheep-action-link sheep-action-delete" href="#">Delete</a></li>
         <li class="sheep-action-item"><a class="sheep-action-link sheep-action-edit" href="#">Edit</a></li>
       </ul>
+      <div class="sheep-state">
+        <span class="sheep-state-label">Status:</span>
+        <div class="sheep-state-graphic {{stateClass state}}">
+          <div class="sheep-state-graphic-icon"></div>
+          {{stateMessage state}}
+        </div>
+      </div>
     </header>
 
     <div class="sheep-overview">
 
-      <div class="sheep-state">
-        <div class="sheep-state-graphic {{stateClass state}}"></div>
-        {{stateMessage state}}
-      </div>
+      
 
-      {{view mapView}}
+      <div class="sheep-map-wrapper">
+        {{view mapView}}
+        <div class="sheep-map-label">
+          <span class="sheep-map-label-icon"></span><strong>Coordinates: </strong>{{position}}
+        </div>
+      </div>
 
     </div>
 

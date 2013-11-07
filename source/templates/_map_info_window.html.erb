@@ -1,7 +1,10 @@
 <script data-template="mapInfoWindow" type="text/x-handlebars">
-  <div class="map-info-window {{#if attack}}attack{{/if}}">
-    <h3 class="map-info-window-title">{{name}} {{#if attack}}er under angrep!{{/if}}</h3>
-    <p><strong>Vekt:</strong> {{weight}} kg</p>
-    <p><strong>Alder:</strong> {{humanizeYears birth_date}}</p>
+  <div class="map-info-window {{stateClass state}}">
+    <h3 class="map-info-window-title">{{stateName state}}</h3>
+    <p><strong>Weight:</strong> {{weight}} kg</p>
+    <p><strong>Age:</strong> {{humanizeYears birth_date}}</p>
+    <p><strong>Breed:</strong> {{breed}}</p>
+    <p><strong>Gender:</strong> {{genderLabel gender}}</p>
+    <a href="#" class="map-info-button" data-model-id="{{id}}">Show more details</a>
   </div>
 </script>

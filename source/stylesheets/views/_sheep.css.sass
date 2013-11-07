@@ -4,13 +4,14 @@
   +clearfix
 
 .sheep-title
-  font-size: 42px
+  font-size: 45px
   color: #222
   float: left
+  -webkit-font-smoothing: antialiased
 
 .sheep-actions
   float: right
-  margin-top: 10px
+  margin-top: 15px
 
 .sheep-action-item
   display: inline
@@ -19,10 +20,60 @@
   @extend %button
   margin-left: 6px
 
-.sheep-action-edit
-  background: #1e91d2
-  border-color: #1e91d2
+.sheep-state
+  float: right
+  margin: 3px 20px 0 0
+
+  &:after
+    height: 36px
+    width: 1px 
+    background: #d3d9dc
+    content: ""
+    display: inline-block
+    position: relative
+    top: 12px 
+    margin-left: 20px
+
+.sheep-state-label
+  font-size: 14px
+  color: #888
+  margin-right: 15px
+
+.sheep-state-graphic
+  +border-radius(3px)
+  position: relative
+  top: 12px
+  height: 36px
+  line-height: 36px
+  padding: 0 17px 0 5px
   color: #fff
+  font-weight: 600
+  font-size: 13px
+  display: inline-block
+
+  .sheep-state-graphic-icon
+    float: left
+    position: relative
+    margin-right: 5px
+    top: -5px
+  
+  &.normal
+    background: #2cc653
+
+    .sheep-state-graphic-icon
+      +background-image-retina("sheep.png")
+
+  &.attack
+    background: #e2281a
+
+    .sheep-state-graphic-icon
+      +background-image-retina("sheep.png")
+
+  &.dead
+    background: #444
+
+    .sheep-state-graphic-icon
+      +background-image-retina("sheep_dead.png")
 
 .sheep-content
   padding: 30px 0
@@ -45,17 +96,17 @@
   strong
     width: 140px
     display: inline-block
+    font-weight: 600
+    color: #222
 
 .sheep-overview,
 .sheep-content
   +clearfix
 
-.sheep-details,
-.sheep-overview .sheep-state
+.sheep-details
   +span-columns(4)
 
-.sheep-activity,
-.sheep-overview .sheep-map
+.sheep-activity
   +span-columns(8)
   +omega
 
@@ -65,30 +116,39 @@
     width: 140px
     display: inline-block
 
-.sheep-overview
-  padding: 30px 0
+.sheep-map-wrapper
+  overflow: hidden
+  position: relative
+  background: #333
+  margin: 30px 0
+  height: 300px
 
   .sheep-map
-    +border-radius(3px)
-    background: #333
-    height: 280px
+    height: 300px
 
-  .sheep-state
-    +border-radius(3px)
-    border: 1px solid #d3d9dc
-    height: 280px
-    font-size: 22px
-    text-align: center
+    img
+      max-width: none
+      
+    label
+      width: auto
+      display: inline 
 
-.sheep-state-graphic
-  margin: 25px auto 25px auto
-  
-  &.normal
-    +background-image-retina("sheep_state_normal.png")
+  .sheep-map-label
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 0
+    height: 50px
+    line-height: 50px
+    padding: 0 15px
+    background: rgba(black, 0.75)
+    color: rgba(white, 0.75)
 
-  &.attack
-    +background-image-retina("sheep_state_attack.png")
-  
-  &.dead
-    +background-image-retina("sheep_state_dead.png")
-    
+    .sheep-map-label-icon
+      +inline-background-image-retina("sheep_map_position.png")
+      display: inline-block
+      margin: 0 10px -3px 0
+
+    strong
+      color: #fff
+      font-weight: 600
