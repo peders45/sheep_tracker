@@ -7,17 +7,15 @@ $list-item-height: 46px
   min-height: 80px
   +border-radius(2px)
 
-.sheep-list-header > span
-  font-weight: bold
-  color: #222
+.sheep-list-header
+
+  > span
+    font-weight: bold
+    color: #222
 
 .sheep-list-row
   border-bottom: 1px solid #ddd
-  cursor: pointer
   +clearfix
-
-  &:hover
-    background: #f5f5f5
 
   span
     display: block
@@ -40,3 +38,7 @@ $list-item-height: 46px
   
   span.sheep-list-header-edit
     width: 10%
+
+.sheep-list-item:hover
+  background: #f5f5f5
+  cursor: pointer

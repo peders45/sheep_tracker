@@ -31,6 +31,5 @@ class InviteView extends Thorax.View
   showMessage: (data) ->
     @$el.find(".success-message").html(data).addClass("visible")
 
-
 view = new InviteView()
 view.appendTo("body")

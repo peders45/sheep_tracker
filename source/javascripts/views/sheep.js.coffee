@@ -3,13 +3,14 @@ class SheepTracker.Views.Sheep extends Thorax.View
   className: "sheep"
   template: SheepTracker.templates.sheep
   events:
-    model:
-      "change": "render"
     "click .sheep-action-delete": "clear"
     "click .sheep-action-edit": "edit"
     "click .sheep-state": "state"
+    model:
+      "change": "render"
 
   initialize: ->
+    console.log @model
     @mapView = new SheepTracker.Views.Map({@model})
     @headerView = new SheepTracker.Views.Header({@model, delegate: this})
     @notificationsView = new SheepTracker.Views.Notifications()
@@ -19,8 +20,8 @@ class SheepTracker.Views.Sheep extends Thorax.View
 
   clear: (e) ->
     e.preventDefault()
-    @destroy()
-    @redirect()
+    @model.destroy()
+    window.location.hash = ""
     return false
 
   edit: (e) ->

@@ -17,16 +17,12 @@
     </header>
 
     <div class="sheep-overview">
-
-      
-
       <div class="sheep-map-wrapper">
         {{view mapView}}
         <div class="sheep-map-label">
           <span class="sheep-map-label-icon"></span><strong>Coordinates: </strong>{{position}}
         </div>
       </div>
-
     </div>
 
     <div class="sheep-content">
@@ -44,11 +40,11 @@
       <div class="sheep-activity">
         <h3>Recent Activity</h3>
         <ul class="sheep-content-list">
-          <li class="sheep-content-list-item"><span>12/01/2012</span>Daisy was edited by Truls</li>
-          <li class="sheep-content-list-item"><span>12/01/2012</span>Daisy was edited by Truls</li>
-          <li class="sheep-content-list-item"><span>12/01/2012</span>Daisy was edited by Truls</li>
-          <li class="sheep-content-list-item"><span>12/01/2012</span>Daisy was edited by Truls</li>
-          <li class="sheep-content-list-item"><span>12/01/2012</span>Daisy was edited by Truls</li>
+          {{#each events}}
+            <li class="sheep-content-list-item"><span>{{formatDate time}}</span>{{event}}</li>
+          {{else}}
+            <li class="sheep-content-list-empty">No Activity</li>
+          {{/each}}
         </ul>
       </div>
     </div>

@@ -3,8 +3,9 @@ class SheepTracker.Views.FilterBar extends Thorax.View
   className: "filter-bar"
   template: SheepTracker.templates.filterBar
   events:
-    "keyup .filter-bar-input": "_keyup"
+    "keypress .filter-bar-input": "search"
 
-  _keyup: (e) ->
-    query = e.currentTarget.value
-    @delegate?.FilterBarDidChangeValue?(query)
+  search: (e) ->
+    if e.which == 13
+      query = e.currentTarget.value
+      @delegate?.FilterBarDidChangeValue?(query)

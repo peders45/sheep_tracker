@@ -4,7 +4,6 @@ class SheepTracker.Views.Header extends Thorax.View
   template: SheepTracker.templates.header
   events:
     "click .add-sheep": "showForm"
-    "click .attack-sheep": "attackSheep"
     "click .logout": "logout"
     "click .invite": "invite"
 
@@ -16,12 +15,6 @@ class SheepTracker.Views.Header extends Thorax.View
     @formView = new SheepTracker.Views.Form({@collection, @delegate})
     @formView.appendTo("body")
     return false
-
-  attackSheep: (e) ->
-    if model = @collection.at(@attacked++)
-      model.set({state: 1})
-    else
-      @$el.addClass("attack-disabled")
 
   logout: (e) ->
     $.ajax
