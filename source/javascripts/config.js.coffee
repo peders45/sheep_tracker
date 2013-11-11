@@ -4,4 +4,6 @@
 
 @notifications =
   edited: "Your sheep %s was successfully edited"
+  editedError: "Could not edit sheep %s"
   created: "Your sheep %s was successfully created"
+  createdError: "Could not create sheep %s"

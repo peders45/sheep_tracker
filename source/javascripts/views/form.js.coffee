@@ -28,7 +28,7 @@ class SheepTracker.Views.Form extends Thorax.View
       @datepickerInput = document.getElementById("birthday")
       el.appendChild(@datepicker.el)
 
-    if date = new Date(@datepickerInput.value)
+    if date = moment(@datepickerInput.value)
       @datepicker.select(date)
 
   _datepickerBlur: (e) =>
@@ -45,17 +45,30 @@ class SheepTracker.Views.Form extends Thorax.View
     e.preventDefault()
     attributes = @serialize()
 
-    if @model?.set(attributes)
-      @model.save()
-      @model.trigger("change")
-      message = notifications.edited.replace("%s", @model.get("name"))
-      @delegate?.NotificationDidAppear?(message, "success")
-      @destroy()
+    @model?.save(attributes, 
+      {
+        wait: true
+        success: (model, response) =>
+          message = notifications.edited.replace("%s", model.get("name"))
+          @delegate?.NotificationDidAppear?(message, "success")
+        error: (model, response) =>
+          console.log "error"
+      }
+    )
 
-    if @collection?.create(attributes, {wait: true})
-      @destroy()
-      message = notifications.created.replace("%s", attributes.name)
-      @delegate?.NotificationDidAppear?(message, "success")
+    @collection?.create(attributes,
+      {
+        wait: true
+        success: (model, response) =>
+          message = notifications.created.replace("%s", attributes.name)
+          @delegate?.NotificationDidAppear?(message, "success")
+        error: (model, response) =>
+          message = notifications.createdError.replace("%s", attributes.name)
+          @delegate?.NotificationDidAppear?(message, "error")
+      }
+    )
+
+    @destroy()
 
   _cancel: (e) =>
     e.preventDefault()

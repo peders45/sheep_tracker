@@ -3,7 +3,6 @@
 #= require ../config.js
 
 container = document.getElementById "container"
-console.log container
 registrationCode = window.location.hash.slice(1)
 options =
   lines: 12,

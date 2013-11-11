@@ -3,27 +3,29 @@ class SheepTracker.Views.Map extends Thorax.View
   className: "sheep-map"
   template: SheepTracker.templates.map
   events:
+    "click .map-info-button": "click"
     collection:
       add: "addMarker"
-      "change": "attack"
-    "click .map-info-button": "click"
+      change: "attack"
 
   initialize: ->
     @_sounds = {}
     @_markers = {}
 
-  render: ->
-    super
+    # Hack to get around bug in Google Maps 
+    # https://code.google.com/p/gmaps-api-issues/issues/detail?id=1448
     setTimeout(_.bind(@addMap, this), 1)
 
   addMap: ->
-    @markerImage = new google.maps.MarkerImage("images/sheep@2x.png", null, null, null, new google.maps.Size(40, 38))
-    @markerImageAttacked = new google.maps.MarkerImage("images/sheep_attacked@2x.png", null, null, null, new google.maps.Size(67, 65))
-    @markerImageDead = new google.maps.MarkerImage("images/sheep_dead@2x.png", null, null, null, new google.maps.Size(40, 42))
+    @mapCenter = new google.maps.LatLng(63.430112, 10.399804)
     @infowindow = new google.maps.InfoWindow({maxWidth: 200})
-    
+    @images = 
+      default:  @markerImage("sheep@2x.png", 40, 38, 20, 20)
+      attacked: @markerImage("sheep_attacked@2x.png", 67, 65, 20, 20)
+      dead:     @markerImage("sheep_dead@2x.png", 40, 42, 20, 20)
+
     @map = new google.maps.Map(@el, {
-      center: new google.maps.LatLng(63.430112, 10.399804)
+      center: @mapCenter
       mapTypeId: google.maps.MapTypeId.ROADMAP
       zoom: 14
       scrollwheel: false
@@ -34,24 +36,34 @@ class SheepTracker.Views.Map extends Thorax.View
 
   renderModel: ->
     position = @model.get("position")
+    @mapCenter = new google.maps.LatLng(position[0], position[1])
     @addMarker(@model)
     @renderRoute()
-    @map.setCenter(new google.maps.LatLng(position[0], position[1]))
+    @map.setCenter(@mapCenter)
 
   addMarker: (model) ->
-    position = model.get("position")
+    # Hack to get around bug in Google Maps 
+    # https://code.google.com/p/gmaps-api-issues/issues/detail?id=1448
+    setTimeout(=>
+      position = model.get("position")
 
-    @_markers[model.cid] = marker = new google.maps.Marker({
-      position: new google.maps.LatLng(position[0], position[1])
-      map: @map,
-      icon: @markerImage
-    })
+      @_markers[model.cid] = marker = new google.maps.Marker({
+        position: new google.maps.LatLng(position[0], position[1])
+        map: @map,
+        icon: @images.default
+      })
 
-    google.maps.event.addListener(marker, 'click', => 
-      @openInfoWindow(model)
-    )
+      google.maps.event.addListener(marker, 'click', => 
+        @openInfoWindow(model)
+      )
 
-    @setState(model)
+      @setState(model)
+    , 1)
+
+  markerImage: (image, width, height, offsetWidth=0, offsetHeight=0) ->
+    position = new google.maps.Size(width, height)
+    offset = new google.maps.Point(offsetWidth, offsetHeight)
+    new google.maps.MarkerImage("images/#{image}", null, null, offset, position)
 
   renderRoute: ->
     positions = @model.get("positions")
@@ -62,12 +74,11 @@ class SheepTracker.Views.Map extends Thorax.View
       
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(coor[0], coor[1])
-        icon: new google.maps.MarkerImage("images/sheep_position@2x.png", null, null, new google.maps.Point(9, 9), new google.maps.Size(18, 18))
+        icon: @markerImage("sheep_position@2x.png", 18, 18, 9, 9)
         map: @map
       })
 
       lines.push(new google.maps.LatLng(coor[0], coor[1]))
-
 
     currentPosition = @model.get("position")
     lines.push(new google.maps.LatLng(currentPosition[0], currentPosition[1]))
@@ -94,7 +105,7 @@ class SheepTracker.Views.Map extends Thorax.View
       sound.play()
 
       if marker = @_markers[model.cid]
-        marker.setIcon(@markerImageAttacked)
+        marker.setIcon(@images.attacked)
         marker.setAnimation(google.maps.Animation.BOUNCE)
 
     else
@@ -104,11 +115,11 @@ class SheepTracker.Views.Map extends Thorax.View
         delete @_sounds[model.cid]
 
       if marker = @_markers[model.cid]
-        marker.setIcon(@markerImage)
+        marker.setIcon(@images.default)
         marker.setAnimation(null)
 
     if state == 2
-      marker.setIcon(@markerImageDead)
+      marker.setIcon(@images.dead)
 
   _audioPlayer: ->
     sound = new Audio("audio/sheep.wav")

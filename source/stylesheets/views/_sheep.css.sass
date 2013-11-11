@@ -22,22 +22,25 @@
 
 .sheep-state
   float: right
-  margin: 3px 20px 0 0
+  margin: 3px 12px 0 0
+  padding-right: 18px
+  position: relative
 
   &:after
     height: 36px
     width: 1px 
     background: #d3d9dc
     content: ""
-    display: inline-block
-    position: relative
-    top: 12px 
-    margin-left: 20px
+    display: block
+    position: absolute
+    right: 0
+    top: 12px
 
 .sheep-state-label
   font-size: 14px
   color: #888
-  margin-right: 15px
+  margin: 20px 15px 0 0
+  float: left
 
 .sheep-state-graphic
   +border-radius(3px)

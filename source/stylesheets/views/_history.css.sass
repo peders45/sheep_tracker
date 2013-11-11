@@ -1,0 +1,40 @@
+$history-item-height: 46px
+
+.history-title
+  font-size: 38px
+  margin-top: 30px
+
+.sheep-history
+  margin: 30px 0
+  display: block
+  border: 1px solid #ddd
+  min-height: 80px
+  +border-radius(2px)
+
+.sheep-history-header
+
+  > span
+    font-weight: bold
+    color: #222
+
+.sheep-history-row
+  border-bottom: 1px solid #ddd
+  +clearfix
+
+  span
+    display: block
+    width: 20%
+    float: left
+    padding-left: 12px
+    border-right: 1px solid #ddd
+    height: $history-item-height
+    line-height: $history-item-height
+
+  span:first-child
+    width: 60%
+
+  span:last-child
+    border-right: none
+
+  &:last-child
+    border-bottom: none

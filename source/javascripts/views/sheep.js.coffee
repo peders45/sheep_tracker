@@ -10,7 +10,6 @@ class SheepTracker.Views.Sheep extends Thorax.View
       "change": "render"
 
   initialize: ->
-    console.log @model
     @mapView = new SheepTracker.Views.Map({@model})
     @headerView = new SheepTracker.Views.Header({@model, delegate: this})
     @notificationsView = new SheepTracker.Views.Notifications()
