@@ -45,3 +45,15 @@ Handlebars.registerHelper("genderLabel", (gender) ->
     when 1 then "Female"  
   return message
 )
+
+Handlebars.registerHelper("isHealthy", (state) ->
+  if parseInt(state, 10) == 0 then "selected" else ""
+)
+
+Handlebars.registerHelper("isUnderAttack", (state) ->
+  if parseInt(state, 10) == 1 then "selected" else ""
+)
+
+Handlebars.registerHelper("isDead", (state) ->
+  if parseInt(state, 10) == 2 then "selected" else ""
+)

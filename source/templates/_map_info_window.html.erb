@@ -1,9 +1,10 @@
 <script data-template="mapInfoWindow" type="text/x-handlebars">
   <div class="map-info-window {{stateClass state}}">
     <h3 class="map-info-window-title">{{stateName state}}</h3>
+    <p><strong>Heart Rate:</strong> {{heart_rate}} bpm</p>
+    <p><strong>Body Temperature:</strong> {{body_temperature}}&#8451;</p>
     <p><strong>Weight:</strong> {{weight}} kg</p>
     <p><strong>Age:</strong> {{humanizeYears birth_date}}</p>
-    <p><strong>Breed:</strong> {{breed}}</p>
     <p><strong>Gender:</strong> {{genderLabel gender}}</p>
     <a href="#" class="map-info-button" data-model-id="{{id}}">Show more details</a>
   </div>

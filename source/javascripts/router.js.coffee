@@ -3,36 +3,45 @@ class @SheepTracker.Router extends Backbone.Router
   routes:
     "": "index"
     "history": "history"
+    "invite": "invite"
     ":id": "sheep"
 
+  initialize: ->
+    @collection = new SheepTracker.Collections.Sheep()
+    @collection.fetch()
+
   index: ->
-    @indexView?.destroy()
-    @sheepView?.destroy()
-    @historyView?.destroy()
-    
-    @indexView = new SheepTracker.Views.Index()
+    @reset()
+    @indexView = new SheepTracker.Views.Index({@collection})
     @indexView.appendTo("body")
 
   sheep: (id) ->
-    @indexView?.destroy()
-    @sheepView?.destroy()
-    @historyView?.destroy()
-
-    @model = new SheepTracker.Models.Sheep({id: id})
+    @reset()
+    @model = new SheepTracker.Models.Sheep({@collection, id: id})
     @model.fetch(
       {
         error: =>
-          window.location = "/"
+          @sheepMissingView = new SheepTracker.Views.SheepMissing({@collection})
+          @sheepMissingView.appendTo("body")
         success: =>
-          @sheepView = new SheepTracker.Views.Sheep({@model})
+          @sheepView = new SheepTracker.Views.Sheep({@collection, @model})
           @sheepView.appendTo("body")
       }
     )
 
   history: ->
+    @reset()
+    @historyView = new SheepTracker.Views.History({@collection})
+    @historyView.appendTo("body")
+
+  invite: ->
+    @reset()
+    @inviteView = new SheepTracker.Views.Invite({@collection})
+    @inviteView.appendTo("body")
+
+  reset: ->
     @indexView?.destroy()
     @sheepView?.destroy()
+    @sheepMissingView?.destroy()
     @historyView?.destroy()
-
-    @historyView = new SheepTracker.Views.History()
-    @historyView.appendTo("body")
+    @inviteView?.destroy()

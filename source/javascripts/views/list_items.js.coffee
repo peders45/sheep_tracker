@@ -5,6 +5,8 @@ class SheepTracker.Views.ListItems extends Thorax.CollectionView
     "click .sheep-list-item-remove": "clear"
     "click .sheep-list-item-edit": "edit"
     "click .sheep-list-item": "redirect"
+    collection:
+      change: "render"
 
   itemFilter: (model, index) ->
     if @query
@@ -19,16 +21,19 @@ class SheepTracker.Views.ListItems extends Thorax.CollectionView
   clear: (e) ->
     e.preventDefault()
     e.stopImmediatePropagation()
-    id = e.currentTarget.parentNode.getAttribute "data-model-cid"
-    @collection.get(id).destroy({wait: true})
+    id = e.currentTarget.parentNode.getAttribute "data-model-id"
+    model = @collection.get(id)
+    message = notifications.deleted.replace("%s", model.get("name"))
+    @delegate?.NotificationDidAppear?(message, "success")
+    model.destroy({wait: true})
     return false
 
   edit: (e) ->
     e.preventDefault()
     e.stopImmediatePropagation()
-    id = e.currentTarget.parentNode.getAttribute "data-model-cid"
-    model = @collection.get(id)
-    @formView = new SheepTracker.Views.Form({model: model, @delegate})
+    id = e.currentTarget.parentNode.getAttribute "data-model-id"
+    model = new SheepTracker.Models.Sheep({id: id})
+    @formView = new SheepTracker.Views.Form({@collection, model: model, @delegate})
     @formView.appendTo("body")
     return false
 

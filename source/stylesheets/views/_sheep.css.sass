@@ -102,7 +102,24 @@
     font-weight: 600
     color: #222
 
-.sheep-content-list-empty
+.sheep-activity-list-item
+  border-bottom: 1px solid #e9ebed
+  padding: 8px 0 9px 0
+  +clearfix
+
+  &:first-child
+    border-top: 1px solid #e9ebed
+
+  .sheep-activity-list-date
+    +span-columns(2, 12)
+    display: block
+
+  .sheep-activity-list-event
+    +span-columns(10, 12)
+    display: block
+    +omega
+
+.sheep-activity-list-empty
   padding-top: 10px
   font-size: 13px
   font-weight: bold

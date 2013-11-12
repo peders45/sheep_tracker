@@ -36,15 +36,19 @@
           <li class="sheep-content-list-item"><strong>Breed: </strong>{{breed}}</li>
           <li class="sheep-content-list-item"><strong>Gender: </strong>{{genderLabel gender}}</li>
           <li class="sheep-content-list-item"><strong>Heart Rate: </strong>{{heart_rate}} bpm</li>
+          <li class="sheep-content-list-item"><strong>Body Temperature: </strong>{{body_temperature}}&#8451;</li
         </ul>
       </div>
       <div class="sheep-activity">
         <h3>Recent Activity</h3>
-        <ul class="sheep-content-list">
+        <ul class="sheep-activity-list">
           {{#each events}}
-            <li class="sheep-content-list-item"><span>{{formatDate time}}</span>{{event}}</li>
+            <li class="sheep-activity-list-item">
+              <span class="sheep-activity-list-date">{{formatDate time}}</span>
+              <span class="sheep-activity-list-event">{{event}}</span>
+            </li>
           {{else}}
-            <li class="sheep-content-list-empty">No Activity</li>
+            <li class="sheep-activity-list-empty">No Activity</li>
           {{/each}}
         </ul>
       </div>

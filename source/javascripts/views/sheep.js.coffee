@@ -7,12 +7,16 @@ class SheepTracker.Views.Sheep extends Thorax.View
     "click .sheep-action-edit": "edit"
     "click .sheep-state": "state"
     model:
-      "change": "render"
+      change: "render"
 
   initialize: ->
     @mapView = new SheepTracker.Views.Map({@model})
-    @headerView = new SheepTracker.Views.Header({@model, delegate: this})
+    @headerView = new SheepTracker.Views.Header({@collection, delegate: this})
     @notificationsView = new SheepTracker.Views.Notifications()
+
+  render: ->
+    super
+    @mapView?.addMap()
 
   NotificationDidAppear: (message, type) ->
     @notificationsView.add(message, type)

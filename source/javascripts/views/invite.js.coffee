@@ -1,16 +1,13 @@
-#= require ../libs/jquery-2.0.3.min
-#= require ../libs/underscore.min.js
-#= require ../libs/backbone.min.js
-#= require ../libs/handlebars
-#= require ../libs/thorax.js
-#= require ../config.js
+class SheepTracker.Views.Invite extends Thorax.View
 
-class InviteView extends Thorax.View
-
-  className: "auth"
-  template: Handlebars.compile(document.getElementById("invite").innerHTML)
+  className: "sheep"
+  template: SheepTracker.templates.invite
   events:
     "submit form": "_onSubmit"
+
+  initialize: ->
+    @headerView = new SheepTracker.Views.Header({@collection, delegate: this})
+    @notificationsView = new SheepTracker.Views.Notifications()
 
   _onSubmit: (e) ->
     e.preventDefault()
@@ -31,5 +28,5 @@ class InviteView extends Thorax.View
   showMessage: (data) ->
     @$el.find(".success-message").html(data).addClass("visible")
 
-view = new InviteView()
-view.appendTo("body")
+  NotificationDidAppear: (message, type) ->
+    @notificationsView.add(message, type)

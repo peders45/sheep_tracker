@@ -52,21 +52,23 @@ class SheepTracker.Views.Form extends Thorax.View
           message = notifications.edited.replace("%s", model.get("name"))
           @delegate?.NotificationDidAppear?(message, "success")
         error: (model, response) =>
-          console.log "error"
-      }
-    )
-
-    @collection?.create(attributes,
-      {
-        wait: true
-        success: (model, response) =>
-          message = notifications.created.replace("%s", attributes.name)
-          @delegate?.NotificationDidAppear?(message, "success")
-        error: (model, response) =>
-          message = notifications.createdError.replace("%s", attributes.name)
+          message = notifications.editedError.replace("%s", attributes.name)
           @delegate?.NotificationDidAppear?(message, "error")
       }
     )
+
+    unless @model
+      @collection?.create(attributes,
+        {
+          wait: true
+          success: (model, response) =>
+            message = notifications.created.replace("%s", attributes.name)
+            @delegate?.NotificationDidAppear?(message, "success")
+          error: (model, response) =>
+            message = notifications.createdError.replace("%s", attributes.name)
+            @delegate?.NotificationDidAppear?(message, "error")
+        }
+      )
 
     @destroy()
 

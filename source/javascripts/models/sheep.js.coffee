@@ -16,4 +16,5 @@ class SheepTracker.Models.Sheep extends Thorax.Model
       weight: @get("weight")
       breed: @get("breed")
       gender: @get("gender")
+      state: @get("state")
     }

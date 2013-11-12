@@ -4,9 +4,10 @@ class SheepTracker.Views.History extends Thorax.View
   template: SheepTracker.templates.history
 
   initialize: ->
+    sheep = @collection
     @collection = new SheepTracker.Collections.Activities()
     @collection.fetch()
-    @headerView = new SheepTracker.Views.Header({@collection, delegate: this})
+    @headerView = new SheepTracker.Views.Header({collection: sheep, delegate: this})
     @activitiesView = new SheepTracker.Views.Activities({@collection})
     @notificationsView = new SheepTracker.Views.Notifications()
 

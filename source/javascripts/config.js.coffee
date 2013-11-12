@@ -7,3 +7,4 @@
   editedError: "Could not edit sheep %s"
   created: "Your sheep %s was successfully created"
   createdError: "Could not create sheep %s"
+  deleted: "Your sheep %s was successfully deleted"

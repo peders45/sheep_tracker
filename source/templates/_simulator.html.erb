@@ -1,0 +1,15 @@
+<script id="simulator" type="text/x-handlebars">
+  <div class="container">
+    <h1 class="content-title">Simulator</h1>
+    {{#collection tag="ul"}}
+      <li class="simulator-list-item" data-model-id="{{id}}">
+        <span class="simulator-list-item-name">{{name}}</span>
+        <span class="simulator-list-item-id">#{{id}}</span>
+        <select class="simulator-list-item-select">
+          <option value="0" {{isHealthy state}}>Healty</option>
+          <option value="1" {{isUnderAttack state}}>Under attack</option>
+          <option value="2" {{isDead state}}>Dead</option></select>
+      </li>
+    {{/collection}}
+  </div> 
+</script>

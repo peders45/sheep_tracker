@@ -5,7 +5,6 @@ class SheepTracker.Views.Header extends Thorax.View
   events:
     "click .add-sheep": "showForm"
     "click .logout": "logout"
-    "click .invite": "invite"
 
   initialize: ->
     @attacked = 0
@@ -24,6 +23,3 @@ class SheepTracker.Views.Header extends Thorax.View
         window.location = "index.html"
       error: (data) ->
         window.location = "index.html"
-
-  invite: (e) ->
-    window.location = "invite.html"
