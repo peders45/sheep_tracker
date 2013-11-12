@@ -20,10 +20,10 @@ class SheepTracker.Views.Invite extends Thorax.View
       success: (data) =>
         @showMessage(data)
       error: (data) =>
-        @showError()
+        @showError(data.statusText)
 
   showError: (data) ->
-    @$el.find(".error-message").addClass("visible")
+    @$el.find(".error-message").html(data).addClass("visible")
 
   showMessage: (data) ->
     @$el.find(".success-message").html(data).addClass("visible")
