@@ -12,7 +12,7 @@ class SheepTracker.Models.Sheep extends Thorax.Model
   toJSON: ->
     return {
       name: @get("name")
-      birth_date: new Date(@get("birth_date"))
+      birth_date: moment(@get("birth_date")).format()
       weight: @get("weight")
       breed: @get("breed")
       gender: @get("gender")

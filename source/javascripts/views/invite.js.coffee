@@ -13,6 +13,10 @@ class SheepTracker.Views.Invite extends Thorax.View
     e.preventDefault()
     attributes = @serialize()
 
+    if attributes.email == "" || attributes.message == ""
+      @showError("Please fill out both fields")
+      return
+
     $.ajax
       type: "post"
       url: "#{SERVER_URL}/invite"

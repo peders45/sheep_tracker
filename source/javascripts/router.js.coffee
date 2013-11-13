@@ -8,7 +8,13 @@ class @SheepTracker.Router extends Backbone.Router
 
   initialize: ->
     @collection = new SheepTracker.Collections.Sheep()
-    @collection.fetch()
+    @collection.fetch(
+      {
+        error: (data, request) ->
+          if request.status == 403
+            window.location = "login.html"
+      }
+    )
 
   index: ->
     @reset()

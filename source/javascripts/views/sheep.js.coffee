@@ -5,7 +5,6 @@ class SheepTracker.Views.Sheep extends Thorax.View
   events:
     "click .sheep-action-delete": "clear"
     "click .sheep-action-edit": "edit"
-    "click .sheep-state": "state"
     model:
       change: "render"
 
@@ -23,16 +22,16 @@ class SheepTracker.Views.Sheep extends Thorax.View
 
   clear: (e) ->
     e.preventDefault()
-    @model.destroy()
-    window.location.hash = ""
+    @model.destroy(
+      {
+        success: ->
+          window.location = window.location.href.split('#')[0]
+      }
+    )
+    
     return false
 
   edit: (e) ->
     e.preventDefault()
     @formView = new SheepTracker.Views.Form({@model, delegate: this})
     @formView.appendTo("body")
-
-  state: (e) ->
-    if @model.get("state") == 1
-      @model.set("state": 0)
-      @model.save()

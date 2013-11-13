@@ -40,7 +40,7 @@ Handlebars.registerHelper("stateName", (state) ->
 )
 
 Handlebars.registerHelper("genderLabel", (gender) ->
-  message = switch gender
+  message = switch parseInt(gender, 10)
     when 0 then "Male" 
     when 1 then "Female"  
   return message

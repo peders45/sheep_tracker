@@ -13,11 +13,17 @@ class SheepTracker.Views.Notifications extends Thorax.View
   add: (message, type) ->
     @collection.add({type, message})
     
-    setTimeout(=>
+    @timeout = setTimeout(=>
       @collection.pop()
     , 4000)
+
+    undefined
   
   close: (e) ->
     id = e.currentTarget.parentNode.getAttribute("data-model-cid")
     model = @collection.get(id)
     model.destroy()
+
+  destroy: ->
+    super
+    window.clearTimeout(@timeout)

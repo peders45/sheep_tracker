@@ -6,7 +6,6 @@ class SheepTracker.Views.Map extends Thorax.View
     "click .map-info-button": "click"
     collection:
       add: "addMarker"
-      change: "attack"
 
   initialize: ->
     @_sounds = {}
@@ -17,7 +16,7 @@ class SheepTracker.Views.Map extends Thorax.View
     setTimeout(_.bind(@addMap, this), 1)
 
   addMap: ->
-    @mapCenter = new google.maps.LatLng(63.430112, 10.399804)
+    @mapCenter = new google.maps.LatLng(63.423604, 10.298174)
     @infowindow = new google.maps.InfoWindow({maxWidth: 200})
     @images = 
       default:  @markerImage("sheep@2x.png", 40, 38, 20, 20)
@@ -124,6 +123,7 @@ class SheepTracker.Views.Map extends Thorax.View
   _audioPlayer: ->
     sound = new Audio("audio/sheep.wav")
     sound.loop = true
+    sound.volume = 0.2
     sound
 
   click: (e) ->

@@ -32,6 +32,9 @@
           <li class="sheep-content-list-item"><strong>ID: </strong>{{id}}</li>
           <li class="sheep-content-list-item"><strong>Weight: </strong>{{weight}}</li>
           <li class="sheep-content-list-item"><strong>Birthday: </strong>{{formatDate birth_date}}</li>
+          {{#if death_date}}
+            <li class="sheep-content-list-item"><strong>Time of death: </strong>{{formatDate death_date}}</li>
+          {{/if}}
           <li class="sheep-content-list-item"><strong>Age: </strong>{{humanizeYears birth_date}}</li>
           <li class="sheep-content-list-item"><strong>Breed: </strong>{{breed}}</li>
           <li class="sheep-content-list-item"><strong>Gender: </strong>{{genderLabel gender}}</li>
