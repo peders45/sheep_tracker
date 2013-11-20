@@ -12,6 +12,9 @@
 #= require_tree ./collections
 #= require ./simulator/simulator
 
+# Defines a global object SheepTracker
+# that contains references to all the views,
+# models, collections, routes and templates
 @SheepTracker =
   Views: {}
   Models: {}
@@ -19,4 +22,6 @@
   Router: {}
   templates: {}
 
+# Start the Backbone.history so that the
+# History Push State API get initiated
 Backbone.history.start()

@@ -38,3 +38,17 @@
   border-top-right-radius: 3px
   text-decoration: none
   +transform(rotate(90deg))
+
+.simulator-button
+  @extend %button
+  width: 100%
+  height: 40px
+  line-height: 40px
+  text-align: center
+  background: #444
+  color: #fff
+  border: none
+  margin-top: 25px
+
+  &.animate
+    +animation(flash, 800ms, ease)

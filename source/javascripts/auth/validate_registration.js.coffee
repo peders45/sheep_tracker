@@ -2,8 +2,9 @@
 #= require ../libs/spin.min.js
 #= require ../config.js
 
+# Options for the spinner object
+# created with the Spin.js library
 container = document.getElementById "container"
-registrationCode = window.location.hash.slice(1)
 options =
   lines: 12,
   length: 4,
@@ -13,8 +14,18 @@ options =
   top: 'auto',
   left: 'auto'
 
+# Create a new instance of the Spinner
+# object and append it to the container element
 spinner = new Spinner(options).spin(container)
 
+# Get the registration code passed by the
+# server in the URL
+registrationCode = window.location.hash.slice(1)
+
+# Send an Ajax request to validate the registration
+# process. Redirect the user to the index page
+# if it successfully validated. Display an error 
+# message if not
 validateRegistration = ->
   $.ajax
     type: "get"
@@ -25,4 +36,6 @@ validateRegistration = ->
       $(".error-message").addClass("visible")
       spinner.stop()
 
+# Validate the registration. This will be called when 
+# the user open the registration link from the email 
 validateRegistration()

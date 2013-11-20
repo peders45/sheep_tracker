@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>validate_registration.js.coffee</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="change_password.js.html">
+                change_password.js.coffee
+              </a>
+            
+              
+              <a class="source" href="index.js.html">
+                index.js.coffee
+              </a>
+            
+              
+              <a class="source" href="login.js.html">
+                login.js.coffee
+              </a>
+            
+              
+              <a class="source" href="register.js.html">
+                register.js.coffee
+              </a>
+            
+              
+              <a class="source" href="reset_password.js.html">
+                reset_password.js.coffee
+              </a>
+            
+              
+              <a class="source" href="validate_registration.js.html">
+                validate_registration.js.coffee
+              </a>
+            
+              
+              <a class="source" href="activities.js.html">
+                activities.js.coffee
+              </a>
+            
+              
+              <a class="source" href="notifications.js.html">
+                notifications.js.coffee
+              </a>
+            
+              
+              <a class="source" href="sheep.js.html">
+                sheep.js.coffee
+              </a>
+            
+              
+              <a class="source" href="handlebars_helper.js.html">
+                handlebars_helper.js.coffee
+              </a>
+            
+              
+              <a class="source" href="template_helper.js.html">
+                template_helper.js.coffee
+              </a>
+            
+              
+              <a class="source" href="activity.js.html">
+                activity.js.coffee
+              </a>
+            
+              
+              <a class="source" href="notification.js.html">
+                notification.js.coffee
+              </a>
+            
+              
+              <a class="source" href="sheep.js.html">
+                sheep.js.coffee
+              </a>
+            
+              
+              <a class="source" href="simulator.js.html">
+                simulator.js.coffee
+              </a>
+            
+              
+              <a class="source" href="activities.js.html">
+                activities.js.coffee
+              </a>
+            
+              
+              <a class="source" href="activity_item.js.html">
+                activity_item.js.coffee
+              </a>
+            
+              
+              <a class="source" href="datepicker.js.html">
+                datepicker.js.coffee
+              </a>
+            
+              
+              <a class="source" href="filter_bar.js.html">
+                filter_bar.js.coffee
+              </a>
+            
+              
+              <a class="source" href="form.js.html">
+                form.js.coffee
+              </a>
+            
+              
+              <a class="source" href="header.js.html">
+                header.js.coffee
+              </a>
+            
+              
+              <a class="source" href="history.js.html">
+                history.js.coffee
+              </a>
+            
+              
+              <a class="source" href="index.js.html">
+                index.js.coffee
+              </a>
+            
+              
+              <a class="source" href="invite.js.html">
+                invite.js.coffee
+              </a>
+            
+              
+              <a class="source" href="list.js.html">
+                list.js.coffee
+              </a>
+            
+              
+              <a class="source" href="list_items.js.html">
+                list_items.js.coffee
+              </a>
+            
+              
+              <a class="source" href="map.js.html">
+                map.js.coffee
+              </a>
+            
+              
+              <a class="source" href="notifications.js.html">
+                notifications.js.coffee
+              </a>
+            
+              
+              <a class="source" href="sheep.js.html">
+                sheep.js.coffee
+              </a>
+            
+              
+              <a class="source" href="sheep_missing.js.html">
+                sheep_missing.js.coffee
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>validate_registration.js.coffee</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <p>= require ../libs/jquery-2.0.3.min
+= require ../libs/spin.min.js
+= require ../config.js</p>
+<p>Options for the spinner object
+created with the Spin.js library</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>container = document.getElementById <span class="string">"container"</span>
+options =
+  lines: <span class="number">12</span>,
+  length: <span class="number">4</span>,
+  radius: <span class="number">15</span>,
+  width: <span class="number">3</span>,
+  color: <span class="string">"#888"</span>,
+  top: <span class="string">'auto'</span>,
+  left: <span class="string">'auto'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Create a new instance of the Spinner
+object and append it to the container element</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>spinner = <span class="keyword">new</span> Spinner(options).spin(container)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Get the registration code passed by the
+server in the URL</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>registrationCode = window.location.hash.slice(<span class="number">1</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Send an Ajax request to validate the registration
+process. Redirect the user to the index page
+if it successfully validated. Display an error 
+message if not</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="function"><span class="title">validateRegistration</span></span> = -&gt;
+  $.ajax
+    type: <span class="string">"get"</span>
+    url: <span class="string">"<span class="subst">#{SERVER_URL}</span>/validate_registration/<span class="subst">#{registrationCode}</span>"</span>
+    success: (data) =&gt;
+      window.location = <span class="string">"login.html"</span>
+    error: (data) =&gt;
+      $(<span class="string">".error-message"</span>).addClass(<span class="string">"visible"</span>)
+      spinner.stop()</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Validate the registration. This will be called when 
+the user open the registration link from the email </p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>validateRegistration()</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

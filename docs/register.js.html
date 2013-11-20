@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>register.js.coffee</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="change_password.js.html">
+                change_password.js.coffee
+              </a>
+            
+              
+              <a class="source" href="index.js.html">
+                index.js.coffee
+              </a>
+            
+              
+              <a class="source" href="login.js.html">
+                login.js.coffee
+              </a>
+            
+              
+              <a class="source" href="register.js.html">
+                register.js.coffee
+              </a>
+            
+              
+              <a class="source" href="reset_password.js.html">
+                reset_password.js.coffee
+              </a>
+            
+              
+              <a class="source" href="validate_registration.js.html">
+                validate_registration.js.coffee
+              </a>
+            
+              
+              <a class="source" href="activities.js.html">
+                activities.js.coffee
+              </a>
+            
+              
+              <a class="source" href="notifications.js.html">
+                notifications.js.coffee
+              </a>
+            
+              
+              <a class="source" href="sheep.js.html">
+                sheep.js.coffee
+              </a>
+            
+              
+              <a class="source" href="handlebars_helper.js.html">
+                handlebars_helper.js.coffee
+              </a>
+            
+              
+              <a class="source" href="template_helper.js.html">
+                template_helper.js.coffee
+              </a>
+            
+              
+              <a class="source" href="activity.js.html">
+                activity.js.coffee
+              </a>
+            
+              
+              <a class="source" href="notification.js.html">
+                notification.js.coffee
+              </a>
+            
+              
+              <a class="source" href="sheep.js.html">
+                sheep.js.coffee
+              </a>
+            
+              
+              <a class="source" href="simulator.js.html">
+                simulator.js.coffee
+              </a>
+            
+              
+              <a class="source" href="activities.js.html">
+                activities.js.coffee
+              </a>
+            
+              
+              <a class="source" href="activity_item.js.html">
+                activity_item.js.coffee
+              </a>
+            
+              
+              <a class="source" href="datepicker.js.html">
+                datepicker.js.coffee
+              </a>
+            
+              
+              <a class="source" href="filter_bar.js.html">
+                filter_bar.js.coffee
+              </a>
+            
+              
+              <a class="source" href="form.js.html">
+                form.js.coffee
+              </a>
+            
+              
+              <a class="source" href="header.js.html">
+                header.js.coffee
+              </a>
+            
+              
+              <a class="source" href="history.js.html">
+                history.js.coffee
+              </a>
+            
+              
+              <a class="source" href="index.js.html">
+                index.js.coffee
+              </a>
+            
+              
+              <a class="source" href="invite.js.html">
+                invite.js.coffee
+              </a>
+            
+              
+              <a class="source" href="list.js.html">
+                list.js.coffee
+              </a>
+            
+              
+              <a class="source" href="list_items.js.html">
+                list_items.js.coffee
+              </a>
+            
+              
+              <a class="source" href="map.js.html">
+                map.js.coffee
+              </a>
+            
+              
+              <a class="source" href="notifications.js.html">
+                notifications.js.coffee
+              </a>
+            
+              
+              <a class="source" href="sheep.js.html">
+                sheep.js.coffee
+              </a>
+            
+              
+              <a class="source" href="sheep_missing.js.html">
+                sheep_missing.js.coffee
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>register.js.coffee</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <p>= require ../libs/jquery-2.0.3.min
+= require ../libs/underscore.min.js
+= require ../libs/backbone.min.js
+= require ../libs/handlebars
+= require ../libs/thorax.js
+= require ../config.js</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="class"><span class="keyword">class</span> <span class="title">RegisterView</span> <span class="keyword">extends</span> <span class="title">Thorax</span>.<span class="title">View</span></span>
+
+  template: Handlebars.compile(document.getElementById(<span class="string">"register"</span>).innerHTML)
+  className: <span class="string">"auth"</span>
+  events:
+    <span class="string">"submit form"</span>: <span class="string">"_onSubmit"</span>
+
+  render: -&gt;
+    <span class="property">@invite_code</span> = window.location.hash.slice(<span class="number">1</span>) || <span class="literal">null</span>
+    <span class="keyword">super</span>
+    <span class="keyword">if</span> <span class="property">@invite_code</span>
+      <span class="property">@$el</span>.find(<span class="string">"#invite-code"</span>).val(<span class="property">@invite_code</span>)
+
+  _onSubmit: (e) -&gt;
+    e.preventDefault()
+    attributes = <span class="property">@serialize</span>()
+
+    $.ajax
+      type: <span class="string">"post"</span>
+      url: <span class="string">"<span class="subst">#{SERVER_URL}</span>/register"</span>
+      data: attributes
+      success: (data) =&gt;
+        <span class="property">@showMessage</span>(data)
+      error: (data) =&gt;
+        <span class="property">@showError</span>()
+
+  showError: (data) -&gt;
+    <span class="property">@$el</span>.find(<span class="string">".error-message"</span>).addClass(<span class="string">"visible"</span>)
+
+  showMessage: (data) -&gt;
+    <span class="property">@$el</span>.find(<span class="string">".success-message"</span>).html(data).addClass(<span class="string">"visible"</span>)
+
+view = <span class="keyword">new</span> RegisterView()
+view.appendTo(<span class="string">"body"</span>)</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

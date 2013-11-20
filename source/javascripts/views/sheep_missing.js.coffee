@@ -4,10 +4,9 @@ class SheepTracker.Views.SheepMissing extends Thorax.View
   template: SheepTracker.templates.sheepMissing
 
   initialize: ->
+    # Set the id based on the URL hash
     @id = window.location.hash
-    @mapView = new SheepTracker.Views.Map({@model})
-    @headerView = new SheepTracker.Views.Header({@model, delegate: this})
-    @notificationsView = new SheepTracker.Views.Notifications()
 
-  NotificationDidAppear: (message, type) ->
-    @notificationsView.add(message, type)
+    # Create a header view and pass the model 
+    # and set the delegate to the sheep missing view
+    @headerView = new SheepTracker.Views.Header({@model, delegate: this})

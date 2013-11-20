@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>map.js.coffee</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="change_password.js.html">
+                change_password.js.coffee
+              </a>
+            
+              
+              <a class="source" href="index.js.html">
+                index.js.coffee
+              </a>
+            
+              
+              <a class="source" href="login.js.html">
+                login.js.coffee
+              </a>
+            
+              
+              <a class="source" href="register.js.html">
+                register.js.coffee
+              </a>
+            
+              
+              <a class="source" href="reset_password.js.html">
+                reset_password.js.coffee
+              </a>
+            
+              
+              <a class="source" href="validate_registration.js.html">
+                validate_registration.js.coffee
+              </a>
+            
+              
+              <a class="source" href="activities.js.html">
+                activities.js.coffee
+              </a>
+            
+              
+              <a class="source" href="notifications.js.html">
+                notifications.js.coffee
+              </a>
+            
+              
+              <a class="source" href="sheep.js.html">
+                sheep.js.coffee
+              </a>
+            
+              
+              <a class="source" href="handlebars_helper.js.html">
+                handlebars_helper.js.coffee
+              </a>
+            
+              
+              <a class="source" href="template_helper.js.html">
+                template_helper.js.coffee
+              </a>
+            
+              
+              <a class="source" href="activity.js.html">
+                activity.js.coffee
+              </a>
+            
+              
+              <a class="source" href="notification.js.html">
+                notification.js.coffee
+              </a>
+            
+              
+              <a class="source" href="sheep.js.html">
+                sheep.js.coffee
+              </a>
+            
+              
+              <a class="source" href="simulator.js.html">
+                simulator.js.coffee
+              </a>
+            
+              
+              <a class="source" href="activities.js.html">
+                activities.js.coffee
+              </a>
+            
+              
+              <a class="source" href="activity_item.js.html">
+                activity_item.js.coffee
+              </a>
+            
+              
+              <a class="source" href="datepicker.js.html">
+                datepicker.js.coffee
+              </a>
+            
+              
+              <a class="source" href="filter_bar.js.html">
+                filter_bar.js.coffee
+              </a>
+            
+              
+              <a class="source" href="form.js.html">
+                form.js.coffee
+              </a>
+            
+              
+              <a class="source" href="header.js.html">
+                header.js.coffee
+              </a>
+            
+              
+              <a class="source" href="history.js.html">
+                history.js.coffee
+              </a>
+            
+              
+              <a class="source" href="index.js.html">
+                index.js.coffee
+              </a>
+            
+              
+              <a class="source" href="invite.js.html">
+                invite.js.coffee
+              </a>
+            
+              
+              <a class="source" href="list.js.html">
+                list.js.coffee
+              </a>
+            
+              
+              <a class="source" href="list_items.js.html">
+                list_items.js.coffee
+              </a>
+            
+              
+              <a class="source" href="map.js.html">
+                map.js.coffee
+              </a>
+            
+              
+              <a class="source" href="notifications.js.html">
+                notifications.js.coffee
+              </a>
+            
+              
+              <a class="source" href="sheep.js.html">
+                sheep.js.coffee
+              </a>
+            
+              
+              <a class="source" href="sheep_missing.js.html">
+                sheep_missing.js.coffee
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>map.js.coffee</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="class"><span class="keyword">class</span> <span class="title">SheepTracker</span>.<span class="title">Views</span>.<span class="title">Map</span> <span class="keyword">extends</span> <span class="title">Thorax</span>.<span class="title">View</span></span>
+  
+  className: <span class="string">"sheep-map"</span>
+  template: SheepTracker.templates.map
+  events:
+    <span class="string">"click .map-info-button"</span>: <span class="string">"click"</span>
+    collection:</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Bind event on when a model gets added to 
+a collection and adds a marker</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      add: <span class="string">"addMarker"</span>
+
+  initialize: -&gt;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Creates empty object to contain markers and sounds</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="property">@_sounds</span> = {}
+    <span class="property">@_markers</span> = {}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Hack to get around bug in Google Maps 
+<a href="https://code.google.com/p/gmaps-api-issues/issues/detail?id=1448">https://code.google.com/p/gmaps-api-issues/issues/detail?id=1448</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    setTimeout(_.bind(<span class="property">@addMap</span>, <span class="keyword">this</span>), <span class="number">1</span>)
+
+  addMap: -&gt;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Set the center of the map</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="property">@mapCenter</span> = <span class="keyword">new</span> google.maps.LatLng(<span class="number">63.423604</span>, <span class="number">10.298174</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Creates a new info view</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="property">@infowindow</span> = <span class="keyword">new</span> google.maps.InfoWindow({maxWidth: <span class="number">200</span>})</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Define custom markers for each of the sheep states</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="property">@images</span> = 
+      <span class="reserved">default</span>:  <span class="property">@markerImage</span>(<span class="string">"sheep@2x.png"</span>, <span class="number">40</span>, <span class="number">38</span>, <span class="number">20</span>, <span class="number">20</span>)
+      attacked: <span class="property">@markerImage</span>(<span class="string">"sheep_attacked@2x.png"</span>, <span class="number">67</span>, <span class="number">65</span>, <span class="number">20</span>, <span class="number">20</span>)
+      dead:     <span class="property">@markerImage</span>(<span class="string">"sheep_dead@2x.png"</span>, <span class="number">40</span>, <span class="number">42</span>, <span class="number">20</span>, <span class="number">20</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Create a new map in the view element
+with the ROADMAP type and zoom level 14</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="property">@map</span> = <span class="keyword">new</span> google.maps.Map(<span class="property">@el</span>, {
+      center: <span class="property">@mapCenter</span>
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+      zoom: <span class="number">14</span>
+      scrollwheel: <span class="literal">false</span>
+    })</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Render a marker if a model was passed</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="keyword">if</span> <span class="property">@model</span>
+      <span class="property">@renderModel</span>()
+
+  renderModel: -&gt;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Get the current position of the model</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    position = <span class="property">@model</span>.get(<span class="string">"position"</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Set the position to be the map center to center the sheep</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="property">@mapCenter</span> = <span class="keyword">new</span> google.maps.LatLng(position[<span class="number">0</span>], position[<span class="number">1</span>])</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Add the marker for the model</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="property">@addMarker</span>(<span class="property">@model</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>Renders a route with the last 5 sheep positions</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="property">@renderRoute</span>()</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Set the map center </p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="property">@map</span>.setCenter(<span class="property">@mapCenter</span>)
+
+  addMarker: (model) -&gt;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>Hack to get around bug in Google Maps 
+<a href="https://code.google.com/p/gmaps-api-issues/issues/detail?id=1448">https://code.google.com/p/gmaps-api-issues/issues/detail?id=1448</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    setTimeout(=&gt;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>Get the position of the model</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      position = model.get(<span class="string">"position"</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>Create a new marker on the models posotion 
+and append it to the markers object </p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="property">@_markers</span>[model.cid] = marker = <span class="keyword">new</span> google.maps.Marker({
+        position: <span class="keyword">new</span> google.maps.LatLng(position[<span class="number">0</span>], position[<span class="number">1</span>])
+        map: <span class="property">@map</span>,
+        icon: <span class="property">@images</span>.<span class="reserved">default</span>
+      })</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>Show the info window if the user clicks the marker</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      google.maps.event.addListener(marker, <span class="string">'click'</span>, =&gt; 
+        <span class="property">@openInfoWindow</span>(model)
+      )</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>Set the state of the marker to update the marker image</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="property">@setState</span>(model)
+
+    , <span class="number">1</span>)
+
+  markerImage: (image, width, height, offsetWidth=<span class="number">0</span>, offsetHeight=<span class="number">0</span>) -&gt;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>Create a new marker image </p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    position = <span class="keyword">new</span> google.maps.Size(width, height)
+    offset = <span class="keyword">new</span> google.maps.Point(offsetWidth, offsetHeight)
+    <span class="keyword">new</span> google.maps.MarkerImage(<span class="string">"images/<span class="subst">#{image}</span>"</span>, <span class="literal">null</span>, <span class="literal">null</span>, offset, position)
+
+  renderRoute: -&gt;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p>Get the previous positions of the model</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    positions = <span class="property">@model</span>.get(<span class="string">"positions"</span>)
+    lines = []</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p>Loop through all positions and draw a line between
+each point</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="keyword">for</span> position, index <span class="keyword">in</span> positions
+      coor = position.position.split(<span class="string">","</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>Create a marker for each position</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      marker = <span class="keyword">new</span> google.maps.Marker({
+        position: <span class="keyword">new</span> google.maps.LatLng(coor[<span class="number">0</span>], coor[<span class="number">1</span>])
+        icon: <span class="property">@markerImage</span>(<span class="string">"sheep_position@2x.png"</span>, <span class="number">18</span>, <span class="number">18</span>, <span class="number">9</span>, <span class="number">9</span>)
+        map: <span class="property">@map</span>
+      })</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>Append the point to the lines array</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      lines.push(<span class="keyword">new</span> google.maps.LatLng(coor[<span class="number">0</span>], coor[<span class="number">1</span>]))</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p>Get the current position of the model and append
+it to the lines array</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    currentPosition = <span class="property">@model</span>.get(<span class="string">"position"</span>)
+    lines.push(<span class="keyword">new</span> google.maps.LatLng(currentPosition[<span class="number">0</span>], currentPosition[<span class="number">1</span>]))</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>Create a new line between all of the previous points</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    line = <span class="keyword">new</span> google.maps.Polyline({
+      path: lines
+      strokeColor: <span class="string">"#0090ff"</span>
+      strokeOpacity: <span class="number">1.0</span>
+      strokeWeight: <span class="number">3</span>
+    })</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <p>App the line to the map</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    line.setMap(<span class="property">@map</span>)
+
+  openInfoWindow: (model) -&gt;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-28">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <p>Set the content for the info window nad 
+append show it on the map</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    content = SheepTracker.templates.mapInfoWindow(model.attributes)
+    <span class="property">@infowindow</span>.setContent(content)
+    <span class="property">@infowindow</span>.open(<span class="property">@map</span>, <span class="property">@_markers</span>[model.cid])
+
+  setState: (model) -&gt;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-29">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-29">&#182;</a>
+              </div>
+              <p>Get the state of the model</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    state = model.get(<span class="string">"state"</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-30">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-30">&#182;</a>
+              </div>
+              <p>If the sheep is under attack</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="keyword">if</span> state == <span class="number">1</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-31">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-31">&#182;</a>
+              </div>
+              <p>Create a new audio element and play it</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="property">@_sounds</span>[model.cid] = sound = <span class="property">@_audioPlayer</span>()
+      sound.play()</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-32">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-32">&#182;</a>
+              </div>
+              <p>Get the marker based on the mode id and 
+set the marker image to attacked and add 
+a bounce animation</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="keyword">if</span> marker = <span class="property">@_markers</span>[model.cid]
+        marker.setIcon(<span class="property">@images</span>.attacked)
+        marker.setAnimation(google.maps.Animation.BOUNCE)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-33">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-33">&#182;</a>
+              </div>
+              <p>If the sheep is healthy or dead</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="keyword">else</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-34">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-34">&#182;</a>
+              </div>
+              <p>Remove the sound </p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="keyword">if</span> sound = <span class="property">@_sounds</span>[model.cid]
+        sound.pause()
+        sound.currentTime = <span class="number">0</span>
+        <span class="keyword">delete</span> <span class="property">@_sounds</span>[model.cid]</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-35">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-35">&#182;</a>
+              </div>
+              <p>Set the marker to the default image and
+remove the bounce animation</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="keyword">if</span> marker = <span class="property">@_markers</span>[model.cid]
+        marker.setIcon(<span class="property">@images</span>.<span class="reserved">default</span>)
+        marker.setAnimation(<span class="literal">null</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-36">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-36">&#182;</a>
+              </div>
+              <p>If the sheep is dead set the icon
+to the dead marker image</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="keyword">if</span> state == <span class="number">2</span>
+      marker.setIcon(<span class="property">@images</span>.dead)
+
+  _audioPlayer: -&gt;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-37">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-37">&#182;</a>
+              </div>
+              <p>Create a new audio element with the sheep sound</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    sound = <span class="keyword">new</span> Audio(<span class="string">"audio/sheep.wav"</span>)
+    sound.<span class="keyword">loop</span> = <span class="literal">true</span>
+    sound.volume = <span class="number">0.2</span>
+    sound
+
+  click: (e) -&gt;
+    e.preventDefault()</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-38">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-38">&#182;</a>
+              </div>
+              <p>Get the model id based on the data-model-id</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    id = e.currentTarget.getAttribute(<span class="string">"data-model-id"</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-39">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-39">&#182;</a>
+              </div>
+              <p>Redirect to the sheep view with the id</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    window.location.hash = id
+
+  destroy: -&gt;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-40">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-40">&#182;</a>
+              </div>
+              <p>Stop all sounds from playing when the view 
+is destroyed</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="keyword">for</span> key, sound <span class="keyword">of</span> <span class="property">@_sounds</span>
+      sound.pause()
+      sound.currentTime = <span class="number">0</span>
+    <span class="keyword">super</span></pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

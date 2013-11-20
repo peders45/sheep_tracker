@@ -1,7 +1,8 @@
-# Sett opp en redirect til localhost i /etc/hosts
-# hvis du skal kjøre serveren lokalt
-@SERVER_URL = "http://sheep-tracker-32102.euw1.actionbox.io:8888"
+# Contains a URL to the server. If left black
+# the browser will assume localhost
+@SERVER_URL = ""
 
+# Message string for the notification popovers
 @notifications =
   edited: "Your sheep %s was successfully edited"
   editedError: "Could not edit sheep %s"
